@@ -4,7 +4,9 @@ interface CTASectionProps {
 
 export default function CTASection({ className = "" }: CTASectionProps) {
   return (
-    <section className={`px-6 py-20 lg:px-8 bg-gradient-to-r from-blue-500 to-purple-600 ${className}`}>
+    <section
+      className={`px-6 py-20 lg:px-8 bg-gradient-to-r from-blue-500 to-purple-600 ${className}`}
+    >
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
           準備好開始你的成長之旅了嗎？

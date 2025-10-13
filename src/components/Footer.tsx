@@ -14,9 +14,15 @@ export default function Footer({ className = "" }: FooterProps) {
             <span className="text-2xl font-bold text-white">Homie Mentor</span>
           </div>
           <div className="flex space-x-6 text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">隱私政策</a>
-            <a href="#" className="hover:text-white transition-colors">服務條款</a>
-            <a href="#" className="hover:text-white transition-colors">聯絡我們</a>
+            <a href="#" className="hover:text-white transition-colors">
+              隱私政策
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              服務條款
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              聯絡我們
+            </a>
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
