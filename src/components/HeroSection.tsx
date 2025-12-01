@@ -1,26 +1,33 @@
+import { Content } from "@/types/content";
+import { ArrowRight } from "lucide-react";
+
 interface HeroSectionProps {
-  className?: string;
+  t: Content;
 }
 
-export default function HeroSection({ className = "" }: HeroSectionProps) {
+export default function HeroSection({ t }: HeroSectionProps) {
   return (
-    <section className={`px-6 py-20 lg:px-8 ${className}`}>
-      <div className="max-w-7xl mx-auto text-center">
-        <h1 className="hero-title text-gray-900 dark:text-white mb-6">
-          你的 <span className="gradient-text">AI 行動計劃</span> 夥伴
-        </h1>
-        <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-          Homie Mentor 為你生成個人化行動計劃，智慧調整執行強度與時程，
-          並提供溫暖的情緒支持，讓你在達成目標的路上不再孤單
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="btn-primary hover-scale">
-            免費開始體驗
-          </button>
-          <button className="border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-full text-lg font-semibold hover:border-gray-400 dark:hover:border-gray-500 transition-colors">
-            觀看介紹影片
-          </button>
-        </div>
+    <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden pointer-events-none -z-10">
+        <div className="absolute top-20 left-1/4 w-72 h-72 bg-sky-200/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl"></div>
+      </div>
+      <div className="inline-flex items-center px-4 py-2 rounded-full bg-sky-50 text-sky-700 text-sm font-medium mb-8 animate-fade-in-up border border-sky-100">
+        <span className="flex h-2 w-2 rounded-full bg-sky-500 mr-2 animate-pulse"></span>
+        AI Schedule Team
+      </div>
+      <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6 max-w-4xl mx-auto leading-tight">
+        {t.hero.title}
+      </h1>
+      <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+        {t.hero.subtitle}
+      </p>
+      <p className="text-lg font-medium text-sky-600 mb-10">{t.hero.tagline}</p>
+      <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <button className="btn-primary text-lg px-8 py-4 flex items-center justify-center group">
+          {t.hero.cta}
+          <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </button>
       </div>
     </section>
   );

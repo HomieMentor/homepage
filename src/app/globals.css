@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans:
+    var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei", "Heiti TC", "WenQuanYi Micro Hei",
+    Arial, Helvetica, sans-serif;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -21,7 +27,9 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei", "Heiti TC", "WenQuanYi Micro Hei",
+    Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
 
@@ -54,7 +62,7 @@ body {
 
 /* Gradient text effect */
 .gradient-text {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #0ea5e9, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -62,18 +70,24 @@ body {
 
 /* Enhanced button styles */
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: #0ea5e9;
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  cursor: pointer;
+  box-shadow:
+    0 4px 6px -1px rgba(14, 165, 233, 0.1),
+    0 2px 4px -1px rgba(14, 165, 233, 0.06);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  background: #0284c7;
+  transform: translateY(-1px);
+  box-shadow:
+    0 10px 15px -3px rgba(14, 165, 233, 0.2),
+    0 4px 6px -2px rgba(14, 165, 233, 0.1);
 }
 
 /* Card hover effects */
@@ -102,7 +116,7 @@ body {
     align-items: center;
     gap: 2rem;
   }
-  
+
   .mobile-menu a {
     color: white;
     font-size: 1.5rem;
@@ -111,7 +125,12 @@ body {
 }
 
 /* Typography enhancements */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   letter-spacing: -0.025em;
 }

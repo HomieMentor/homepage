@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Homie Mentor - 你的AI行動計劃夥伴",
-  description: "Homie Mentor 是一款為使用者生成行動計劃，並持續動態調整計畫的強度以及時程配置，以及給予情緒支持和進度回顧的 AI 夥伴。",
+  description:
+    "Homie Mentor 是一款為使用者生成行動計劃，並持續動態調整計畫的強度以及時程配置，以及給予情緒支持和進度回顧的 AI 夥伴。",
   keywords: ["AI助手", "行動計劃", "目標達成", "情緒支持", "生產力工具", "個人成長"],
   authors: [{ name: "Homie Mentor Team" }],
   creator: "Homie Mentor",
@@ -56,11 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
   );
 }

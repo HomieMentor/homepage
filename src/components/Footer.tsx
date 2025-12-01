@@ -1,26 +1,19 @@
+import { Content } from "@/types/content";
+
 interface FooterProps {
-  className?: string;
+  t: Content;
 }
 
-export default function Footer({ className = "" }: FooterProps) {
+export default function Footer({ t }: FooterProps) {
   return (
-    <footer className={`px-6 py-12 lg:px-8 bg-gray-900 dark:bg-black ${className}`}>
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center space-x-2 mb-4 md:mb-0">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">H</span>
-            </div>
-            <span className="text-2xl font-bold text-white">Homie Mentor</span>
-          </div>
-          <div className="flex space-x-6 text-gray-400">
-            <a href="#" className="hover:text-white transition-colors">隱私政策</a>
-            <a href="#" className="hover:text-white transition-colors">服務條款</a>
-            <a href="#" className="hover:text-white transition-colors">聯絡我們</a>
-          </div>
-        </div>
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">© 2025 Homie Mentor. 保留所有權利。</p>
+    <footer className="bg-slate-50 py-20 border-t border-slate-200">
+      <div className="max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">{t.footer.text}</h2>
+        <button className="btn-primary text-lg px-10 py-4 shadow-xl shadow-sky-200">
+          {t.footer.cta}
+        </button>
+        <div className="mt-16 text-slate-400 text-sm">
+          © {new Date().getFullYear()} Homie AI. All rights reserved.
         </div>
       </div>
     </footer>
