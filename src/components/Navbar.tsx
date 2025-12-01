@@ -1,16 +1,36 @@
 import { Content } from "@/types/content";
-import { Globe, Menu, X } from "lucide-react";
+import { Globe, Menu, X, ChevronDown, Check } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 interface NavbarProps {
   lang: "en" | "zh-tw";
-  toggleLang: () => void;
+  setLang: (lang: "en" | "zh-tw") => void;
   t: Content;
 }
 
-export default function Navbar({ lang, toggleLang, t }: NavbarProps) {
+export default function Navbar({ lang, setLang, t }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsLangDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleLangSelect = (selectedLang: "en" | "zh-tw") => {
+    setLang(selectedLang);
+    setIsLangDropdownOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
@@ -33,20 +53,48 @@ export default function Navbar({ lang, toggleLang, t }: NavbarProps) {
             >
               {t.nav.pricing}
             </Link>
-            <button
-              onClick={toggleLang}
-              className="flex items-center text-slate-600 hover:text-sky-600 transition-colors cursor-pointer"
-            >
-              <Globe className="w-4 h-4 mr-2" />
-              {lang === "en" ? "繁體中文" : "English"}
-            </button>
+
+            {/* Language Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
+                className="flex items-center text-slate-600 hover:text-sky-600 transition-colors cursor-pointer font-medium"
+              >
+                <Globe className="w-4 h-4 mr-2" />
+                {lang === "en" ? "Language" : "語言"}
+                <ChevronDown
+                  className={`w-4 h-4 ml-1 transition-transform ${isLangDropdownOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {isLangDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-slate-100 py-1 animate-in fade-in zoom-in-95 duration-200">
+                  <button
+                    onClick={() => handleLangSelect("en")}
+                    className={`w-full px-4 py-2 text-left text-sm flex items-center justify-between hover:bg-slate-50 transition-colors cursor-pointer ${lang === "en" ? "text-sky-600 font-medium" : "text-slate-600"}`}
+                  >
+                    English
+                    {lang === "en" && <Check className="w-3 h-3" />}
+                  </button>
+                  <button
+                    onClick={() => handleLangSelect("zh-tw")}
+                    className={`w-full px-4 py-2 text-left text-sm flex items-center justify-between hover:bg-slate-50 transition-colors cursor-pointer ${lang === "zh-tw" ? "text-sky-600 font-medium" : "text-slate-600"}`}
+                  >
+                    繁體中文
+                    {lang === "zh-tw" && <Check className="w-3 h-3" />}
+                  </button>
+                </div>
+              )}
+            </div>
+
             <button className="btn-primary">{t.nav.cta}</button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
+            {/* Mobile Language Toggle (Simple Cycle) */}
             <button
-              onClick={toggleLang}
+              onClick={() => setLang(lang === "en" ? "zh-tw" : "en")}
               className="flex items-center text-slate-600 hover:text-sky-600 transition-colors cursor-pointer mr-4"
             >
               <Globe className="w-4 h-4 mr-2" />

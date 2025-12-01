@@ -10,13 +10,9 @@ export default function PricingPage() {
   const [lang, setLang] = useState<"en" | "zh-tw">("zh-tw");
   const t = content[lang];
 
-  const toggleLang = () => {
-    setLang(lang === "en" ? "zh-tw" : "en");
-  };
-
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-sky-100 selection:text-sky-900">
-      <Navbar lang={lang} toggleLang={toggleLang} t={t} />
+      <Navbar lang={lang} setLang={setLang} t={t} />
       <div className="pt-20">
         <PricingSection t={t} />
       </div>
