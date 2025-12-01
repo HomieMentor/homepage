@@ -36,6 +36,13 @@ export default function Navbar({ lang, toggleLang, t }: NavbarProps) {
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
+              onClick={toggleLang}
+              className="flex items-center text-slate-600 hover:text-sky-600 transition-colors cursor-pointer mr-4"
+            >
+              <Globe className="w-4 h-4 mr-2" />
+              {lang === "en" ? "繁體中文" : "English"}
+            </button>
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-slate-600 hover:text-slate-900 cursor-pointer"
             >
@@ -49,13 +56,6 @@ export default function Navbar({ lang, toggleLang, t }: NavbarProps) {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-b border-slate-100">
           <div className="px-4 pt-2 pb-4 space-y-4">
-            <button
-              onClick={toggleLang}
-              className="flex items-center w-full px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-md cursor-pointer"
-            >
-              <Globe className="w-4 h-4 mr-2" />
-              {lang === "en" ? "Switch to Chinese" : "Switch to English"}
-            </button>
             <button className="w-full btn-primary">{t.nav.cta}</button>
           </div>
         </div>
