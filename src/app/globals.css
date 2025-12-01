@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans:
+    var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei", "Heiti TC", "WenQuanYi Micro Hei",
+    Arial, Helvetica, sans-serif;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -21,7 +27,9 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei", "Heiti TC", "WenQuanYi Micro Hei",
+    Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
 
