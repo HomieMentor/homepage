@@ -3,7 +3,59 @@ import { Content } from "@/types/content";
 export const content: Record<"en" | "zh-tw", Content> = {
   en: {
     nav: {
+      pricing: "Pricing",
       cta: "Join Early Access",
+    },
+    pricing: {
+      title: "Simple, Transparent Pricing",
+      subtitle: "Choose the plan that fits your workflow.",
+      monthly: "Monthly",
+      yearly: "Yearly",
+      save: "Save 20%",
+      plans: [
+        {
+          name: "Free",
+          price: "$0",
+          period: "/month",
+          desc: "Perfect for individuals getting started.",
+          features: [
+            "Basic AI scheduling",
+            "1 AI Companion (Kai)",
+            "Google Calendar integration",
+            "Daily summary",
+          ],
+          cta: "Get Started",
+        },
+        {
+          name: "Pro",
+          price: "$12",
+          period: "/month",
+          desc: "For professionals who need full AI power.",
+          features: [
+            "Advanced AI scheduling",
+            "All 5 AI Companions",
+            "Unlimited calendar integrations",
+            "Weekly insights & analytics",
+            "Priority support",
+          ],
+          cta: "Start Free Trial",
+          popular: true,
+        },
+        {
+          name: "Team",
+          price: "$29",
+          period: "/month",
+          desc: "Collaborate with your team seamlessly.",
+          features: [
+            "Everything in Pro",
+            "Team scheduling",
+            "Shared workspaces",
+            "Admin dashboard",
+            "SSO & Advanced security",
+          ],
+          cta: "Contact Sales",
+        },
+      ],
     },
     hero: {
       title: "Your AI Schedule Team — Built to Adapt to You.",
@@ -130,7 +182,59 @@ export const content: Record<"en" | "zh-tw", Content> = {
   },
   "zh-tw": {
     nav: {
+      pricing: "價格方案",
       cta: "加入 Early Access",
+    },
+    pricing: {
+      title: "簡單透明的價格方案",
+      subtitle: "選擇最適合你的工作流程的方案。",
+      monthly: "月繳",
+      yearly: "年繳",
+      save: "省下 20%",
+      plans: [
+        {
+          name: "免費版",
+          price: "$0",
+          period: "/月",
+          desc: "適合剛開始使用的個人用戶。",
+          features: [
+            "基礎 AI 排程",
+            "1 位 AI 同伴 (Kai)",
+            "Google 日曆整合",
+            "每日摘要",
+          ],
+          cta: "立即開始",
+        },
+        {
+          name: "專業版",
+          price: "$12",
+          period: "/月",
+          desc: "適合需要完整 AI 功能的專業人士。",
+          features: [
+            "進階 AI 排程",
+            "所有 5 位 AI 同伴",
+            "無限日曆整合",
+            "每週洞察與分析",
+            "優先客服支援",
+          ],
+          cta: "免費試用",
+          popular: true,
+        },
+        {
+          name: "團隊版",
+          price: "$29",
+          period: "/月",
+          desc: "適合團隊協作與管理。",
+          features: [
+            "包含專業版所有功能",
+            "團隊排程",
+            "共享工作區",
+            "管理員後台",
+            "SSO 與進階安全性",
+          ],
+          cta: "聯絡業務",
+        },
+      ],
     },
     hero: {
       title: "你的 AI 行程智囊團 ⸺ 專為「你」而生。",

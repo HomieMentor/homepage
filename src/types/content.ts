@@ -1,6 +1,23 @@
 export interface Content {
   nav: {
+    pricing: string;
     cta: string;
+  };
+  pricing: {
+    title: string;
+    subtitle: string;
+    monthly: string;
+    yearly: string;
+    save: string;
+    plans: {
+      name: string;
+      price: string;
+      period: string;
+      desc: string;
+      features: string[];
+      cta: string;
+      popular?: boolean;
+    }[];
   };
   hero: {
     title: string;
