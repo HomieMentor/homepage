@@ -4,6 +4,9 @@ const repo = "homie-ai";
 
 const nextConfig: NextConfig = {
   output: "export",
+  images: {
+    unoptimized: true,
+  },
   assetPrefix: isProd ? `/${repo}/` : "",
   basePath: isProd ? `/${repo}` : "",
 };
