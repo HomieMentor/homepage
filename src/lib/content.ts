@@ -8,7 +8,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
     },
     pricing: {
       title: "Simple, Transparent Pricing",
-      subtitle: "Choose the plan that fits your workflow.",
+      subtitle: "Choose the plan that fits your workflow",
       monthly: "Monthly",
       yearly: "Yearly",
       save: "Save 20%",
@@ -58,14 +58,14 @@ export const content: Record<"en" | "zh-tw", Content> = {
       ],
     },
     hero: {
-      title: "Your AI Schedule Team — Built to Adapt to You.",
+      title: "Your AI Schedule Team — Built to Adapt to You",
       subtitle:
-        "Meet Homie, the first AI-powered calendar that adjusts itself based on your energy, mood, workload, and unexpected changes.",
+        "Meet Homie, the first AI-powered calendar that adjusts itself based on your energy, mood, workload, and unexpected changes",
       tagline: "Stop forcing yourself to fit your calendar. Let your calendar finally fit you.",
       cta: "Join Early Access",
     },
     problem: {
-      title: "You don’t need more productivity tools. You need a system that understands you.",
+      title: "You don’t need more productivity tools. You need a system that understands you",
       items: [
         {
           title: "Endless Reorganizing",
@@ -90,8 +90,8 @@ export const content: Record<"en" | "zh-tw", Content> = {
       ],
     },
     solution: {
-      title: "Your life is dynamic. Your schedule should be too.",
-      subtitle: "When your day falls apart, your plan doesn’t have to.",
+      title: "Your life is dynamic. Your schedule should be too",
+      subtitle: "When your day falls apart, your plan doesn’t have to",
       items: [
         {
           title: "Overslept?",
@@ -187,7 +187,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
     },
     pricing: {
       title: "簡單透明的價格方案",
-      subtitle: "選擇最適合你的工作流程的方案。",
+      subtitle: "選擇最適合你的工作流程的方案",
       monthly: "月繳",
       yearly: "年繳",
       save: "省下 20%",
@@ -232,13 +232,13 @@ export const content: Record<"en" | "zh-tw", Content> = {
       ],
     },
     hero: {
-      title: "你的 AI 行程智囊團 ⸺ 專為「你」而生。",
-      subtitle: "認識 Homie：第一款會依照你的能量、情緒、工作量與突發事件自動調整的 AI 行事曆。",
+      title: "你的 AI 行程智囊團 ⸺ 專為「你」而生",
+      subtitle: "認識 Homie：第一款會依照你的能量、情緒、工作量與突發事件自動調整的 AI 行事曆",
       tagline: "你終於不必再遷就行事曆，而是讓行事曆開始遷就你的生活。",
       cta: "加入 Early Access",
     },
     problem: {
-      title: "你不需要更多工具，你需要的是「懂你」的系統。",
+      title: "你不需要更多工具，你需要的是「懂你」的系統",
       items: [
         {
           title: "無止盡的重排",
@@ -263,8 +263,8 @@ export const content: Record<"en" | "zh-tw", Content> = {
       ],
     },
     solution: {
-      title: "你的生活是動態的，你的行事曆也該如此。",
-      subtitle: "當你的生活突然變動，你的計畫不需要一起崩塌。",
+      title: "你的生活是動態的，你的行事曆也該如此",
+      subtitle: "當你的生活突然變動，你的計畫不需要一起崩塌",
       items: [
         {
           title: "睡過頭？",
