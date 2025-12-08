@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans:
     var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei", "Heiti TC", "WenQuanYi Micro Hei",
@@ -13,11 +15,9 @@
   --font-geist-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 html {
