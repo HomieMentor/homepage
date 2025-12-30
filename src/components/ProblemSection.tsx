@@ -1,5 +1,5 @@
 import { Content } from "@/types/content";
-import { X } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
 
 interface ProblemSectionProps {
   t: Content;
@@ -31,6 +31,12 @@ export default function ProblemSection({ t }: ProblemSectionProps) {
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{item.desc}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-16 flex justify-center">
+          <button className="btn-primary text-lg px-8 py-4 flex items-center justify-center group">
+            {t.hero.cta}
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
       </div>
     </section>

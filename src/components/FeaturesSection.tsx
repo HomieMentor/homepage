@@ -1,5 +1,5 @@
 import { Content } from "@/types/content";
-import { BarChart3, Brain, MessageCircle } from "lucide-react";
+import { BarChart3, Brain, MessageCircle, Calendar, Zap, ArrowRight } from "lucide-react";
 
 interface FeaturesSectionProps {
   t: Content;
@@ -59,6 +59,17 @@ export default function FeaturesSection({ t }: FeaturesSectionProps) {
                         </div>
                       </div>
                     )}
+                    {/* Placeholders for new features to maintain visual consistency */}
+                    {index === 3 && (
+                      <div className="w-full h-full flex items-center justify-center opacity-30">
+                        <Calendar className="w-24 h-24 text-sky-200 dark:text-sky-800" />
+                      </div>
+                    )}
+                    {index === 4 && (
+                      <div className="w-full h-full flex items-center justify-center opacity-30">
+                        <Zap className="w-24 h-24 text-sky-200 dark:text-sky-800" />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -67,6 +78,8 @@ export default function FeaturesSection({ t }: FeaturesSectionProps) {
                   {index === 0 && <Brain className="w-8 h-8" />}
                   {index === 1 && <MessageCircle className="w-8 h-8" />}
                   {index === 2 && <BarChart3 className="w-8 h-8" />}
+                  {index === 3 && <Calendar className="w-8 h-8" />}
+                  {index === 4 && <Zap className="w-8 h-8" />}
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-6">
                   {item.title}
@@ -77,6 +90,12 @@ export default function FeaturesSection({ t }: FeaturesSectionProps) {
               </div>
             </div>
           ))}
+        </div>
+        <div className="mt-20 flex justify-center">
+          <button className="btn-primary text-lg px-8 py-4 flex items-center justify-center group">
+            {t.hero.cta}
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
       </div>
     </section>

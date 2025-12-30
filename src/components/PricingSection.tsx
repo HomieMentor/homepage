@@ -1,14 +1,11 @@
 import { Content } from "@/types/content";
 import { Check } from "lucide-react";
-import { useState } from "react";
 
 interface PricingSectionProps {
   t: Content;
 }
 
 export default function PricingSection({ t }: PricingSectionProps) {
-  const [isAnnual, setIsAnnual] = useState(false);
-
   return (
     <section className="py-24 bg-slate-50 dark:bg-slate-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,33 +14,6 @@ export default function PricingSection({ t }: PricingSectionProps) {
             {t.pricing.title}
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">{t.pricing.subtitle}</p>
-
-          {/* Billing Toggle */}
-          <div className="flex items-center justify-center gap-4">
-            <span
-              className={`text-sm font-medium ${!isAnnual ? "text-slate-900 dark:text-white" : "text-slate-500 dark:text-slate-400"}`}
-            >
-              {t.pricing.monthly}
-            </span>
-            <button
-              onClick={() => setIsAnnual(!isAnnual)}
-              className="relative w-14 h-8 bg-slate-200 dark:bg-slate-700 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900 cursor-pointer"
-            >
-              <div
-                className={`w-6 h-6 bg-white dark:bg-slate-200 rounded-full shadow-sm transform transition-transform duration-300 ${
-                  isAnnual ? "translate-x-6" : "translate-x-0"
-                }`}
-              ></div>
-            </button>
-            <span
-              className={`text-sm font-medium ${isAnnual ? "text-slate-900 dark:text-white" : "text-slate-500 dark:text-slate-400"}`}
-            >
-              {t.pricing.yearly}
-              <span className="ml-2 inline-block px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs rounded-full">
-                {t.pricing.save}
-              </span>
-            </span>
-          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
