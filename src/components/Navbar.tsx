@@ -86,12 +86,7 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
             </div>
 
             <ThemeToggle />
-            <a
-              href="https://forms.gle/VDnMnY5Gr7hr6Eb77"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-            >
+            <a href={t.eaLink} target="_blank" rel="noopener noreferrer" className="btn-primary">
               {t.nav.cta}
             </a>
           </div>
@@ -122,7 +117,7 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
         <div className="md:hidden bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
           <div className="px-4 pt-2 pb-4 space-y-4">
             <a
-              href="https://forms.gle/VDnMnY5Gr7hr6Eb77"
+              href={t.eaLink}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full btn-primary block text-center"

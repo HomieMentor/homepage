@@ -56,7 +56,7 @@ export default function PricingSection({ t }: PricingSectionProps) {
                 ))}
               </ul>
               <a
-                href="https://forms.gle/VDnMnY5Gr7hr6Eb77"
+                href={t.eaLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-3 px-6 rounded-xl font-semibold transition-colors cursor-pointer block text-center ${

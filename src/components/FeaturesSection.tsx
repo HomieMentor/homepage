@@ -177,7 +177,7 @@ export default function FeaturesSection({ t }: FeaturesSectionProps) {
         </div>
         <div className="mt-20 flex justify-center">
           <a
-            href="https://forms.gle/VDnMnY5Gr7hr6Eb77"
+            href={t.eaLink}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-lg px-8 py-4 flex items-center justify-center group"

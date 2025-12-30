@@ -25,7 +25,7 @@ export default function HeroSection({ t }: HeroSectionProps) {
       <p className="text-lg font-medium text-sky-600 dark:text-sky-400 mb-10">{t.hero.tagline}</p>
       <div className="flex flex-col sm:flex-row justify-center gap-4">
         <a
-          href="https://forms.gle/VDnMnY5Gr7hr6Eb77"
+          href={t.eaLink}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-primary text-lg px-8 py-4 flex items-center justify-center group"

@@ -12,7 +12,7 @@ export default function Footer({ t }: FooterProps) {
           {t.footer.text}
         </h2>
         <a
-          href="https://forms.gle/VDnMnY5Gr7hr6Eb77"
+          href={t.eaLink}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-primary text-lg px-10 py-4 shadow-xl shadow-sky-200 dark:shadow-sky-900/50 inline-block"

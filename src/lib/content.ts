@@ -188,6 +188,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
       text: "Planning shouldn’t exhaust you. Let Homie handle it for you.",
       cta: "Join Early Access",
     },
+    eaLink: "https://forms.gle/RECtNj3co4rQQcE5A",
   },
   "zh-tw": {
     nav: {
@@ -361,5 +362,6 @@ export const content: Record<"en" | "zh-tw", Content> = {
       text: "排程不該讓你精疲力盡。讓 Homie 幫你搞定一切。",
       cta: "加入 Early Access",
     },
+    eaLink: "https://forms.gle/zZ4Lcb1yC3ct8Qot6",
   },
 };

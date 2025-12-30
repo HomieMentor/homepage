@@ -66,4 +66,5 @@ export interface Content {
     text: string;
     cta: string;
   };
+  eaLink: string;
 }
