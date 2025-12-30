@@ -205,8 +205,8 @@ export const content: Record<"en" | "zh-tw", Content> = {
           name: "一般",
           price: "免費",
           period: "",
-          desc: "適合剛開始使用的個人用戶。",
-          features: ["基礎 AI 排程", "手動優先級", "自然語言建立/編輯"],
+          desc: "適合想要開始井井有條的你。",
+          features: ["基礎行事曆整合", "手動優先級", "自然語言建立/編輯"],
           cta: "立即開始 (Early Access)",
         },
         {
@@ -258,8 +258,8 @@ export const content: Record<"en" | "zh-tw", Content> = {
           desc: "一個人工作時，沒有人幫你排序、重整、抓節奏。",
         },
         {
-          title: "Fragmented Tools",
-          desc: "Your calendars and todos live in separate apps, so you keep switching back and forth just to avoid overlaps or missed tasks.",
+          title: "工具分散",
+          desc: "你的日曆和待辦事項分散在不同 App 中，為了避免時間衝突或遺漏任務，你只能不斷來回切換。",
         },
       ],
     },
@@ -313,12 +313,12 @@ export const content: Record<"en" | "zh-tw", Content> = {
           desc: "每週 Homie 會分析你的真實使用情況：你何時最有效率、你最常卡在哪裡、什麼任務最消耗你。然後給你個人化的下週排程建議。你用越久，它就越懂你。",
         },
         {
-          title: "Unified calendars",
-          desc: "Keep all your calendars and tasks in one place. Homie syncs your work, personal, and shared calendars into a single timeline, so you never miss a conflict or forget a task. Everything stays aligned — without switching apps or checking multiple views.",
+          title: "整合所有行事曆",
+          desc: "將所有日曆和任務集中一處。Homie 同步你的工作、個人及共享日曆至單一時間軸，讓你不再錯過衝突或遺漏任務。一切保持同步 ⸺ 無需切換 App 或查看多個介面。",
         },
         {
-          title: "Smart prioritization",
-          desc: "Homie helps you decide what should happen first, what can move, and what fits best in your day. It pulls tasks from your todo list into your calendar, arranges them based on urgency, importance, and your energy levels, and updates the order automatically whenever your plans change. No more guessing. No more competing tasks.",
+          title: "智慧優先級排序",
+          desc: "Homie 幫你決定什麼該先做、什麼可以延後、什麼最適合現在做。它將待辦清單拉入行事曆，根據緊急度、重要性及你的能量狀態排列，並在計畫變動時自動更新順序。不再猜測，不再讓任務互相打架。",
         },
       ],
     },

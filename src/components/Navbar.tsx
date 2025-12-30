@@ -40,22 +40,18 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.png" alt="Homie Logo" width={32} height={32} className="w-8 h-8" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
-                Homie
-              </span>
+              <Image
+                src="/logo.png"
+                alt="Homie Logo"
+                width={120}
+                height={32}
+                className="w-auto h-8"
+              />
             </Link>
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/pricing"
-              className="text-slate-600 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 transition-colors font-medium"
-            >
-              {t.nav.pricing}
-            </Link>
-
             {/* Language Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button
@@ -118,13 +114,6 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
           <div className="px-4 pt-2 pb-4 space-y-4">
-            <Link
-              href="/pricing"
-              className="block w-full px-3 py-2 text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 rounded-md font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t.nav.pricing}
-            </Link>
             <button className="w-full btn-primary">{t.nav.cta}</button>
           </div>
         </div>

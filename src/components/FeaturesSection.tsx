@@ -59,15 +59,70 @@ export default function FeaturesSection({ t }: FeaturesSectionProps) {
                         </div>
                       </div>
                     )}
-                    {/* Placeholders for new features to maintain visual consistency */}
+                    {/* Unified Calendars Visual */}
                     {index === 3 && (
-                      <div className="w-full h-full flex items-center justify-center opacity-30">
-                        <Calendar className="w-24 h-24 text-sky-200 dark:text-sky-800" />
+                      <div className="w-full h-full p-8 flex flex-col justify-center gap-4">
+                        <div className="flex gap-4 items-center">
+                          <div className="w-16 text-xs text-right text-slate-400 font-mono">
+                            09:00
+                          </div>
+                          <div className="flex-1 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg border-l-4 border-blue-500 flex items-center px-4">
+                            <div className="h-2 w-24 bg-blue-200 dark:bg-blue-800 rounded"></div>
+                          </div>
+                        </div>
+                        <div className="flex gap-4 items-center">
+                          <div className="w-16 text-xs text-right text-slate-400 font-mono">
+                            10:30
+                          </div>
+                          <div className="flex-1 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg border-l-4 border-green-500 flex items-center px-4">
+                            <div className="h-2 w-32 bg-green-200 dark:bg-green-800 rounded"></div>
+                          </div>
+                        </div>
+                        <div className="flex gap-4 items-center">
+                          <div className="w-16 text-xs text-right text-slate-400 font-mono">
+                            13:00
+                          </div>
+                          <div className="flex-1 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg border-l-4 border-purple-500 flex items-center px-4">
+                            <div className="h-2 w-20 bg-purple-200 dark:bg-purple-800 rounded"></div>
+                          </div>
+                        </div>
                       </div>
                     )}
+                    {/* Smart Prioritization Visual */}
                     {index === 4 && (
-                      <div className="w-full h-full flex items-center justify-center opacity-30">
-                        <Zap className="w-24 h-24 text-sky-200 dark:text-sky-800" />
+                      <div className="w-full h-full p-10 flex flex-col justify-center gap-3 relative">
+                        <div className="absolute right-12 top-1/2 -translate-y-1/2 flex flex-col gap-1 items-center">
+                          <div className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                          <div className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                          <div className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                        </div>
+                        <div className="bg-white dark:bg-slate-700 p-4 rounded-xl shadow-lg border-l-4 border-red-500 transform scale-105 z-10 transition-transform">
+                          <div className="flex justify-between items-center mb-2">
+                            <div className="h-2 w-24 bg-slate-200 dark:bg-slate-500 rounded"></div>
+                            <span className="text-xs font-bold text-red-500 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full">
+                              High
+                            </span>
+                          </div>
+                          <div className="h-2 w-32 bg-slate-100 dark:bg-slate-600 rounded"></div>
+                        </div>
+                        <div className="bg-white/80 dark:bg-slate-700/80 p-4 rounded-xl shadow-md border-l-4 border-yellow-500 transform scale-100 opacity-80">
+                          <div className="flex justify-between items-center mb-2">
+                            <div className="h-2 w-20 bg-slate-200 dark:bg-slate-500 rounded"></div>
+                            <span className="text-xs font-bold text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20 px-2 py-0.5 rounded-full">
+                              Med
+                            </span>
+                          </div>
+                          <div className="h-2 w-28 bg-slate-100 dark:bg-slate-600 rounded"></div>
+                        </div>
+                        <div className="bg-white/60 dark:bg-slate-700/60 p-4 rounded-xl shadow-sm border-l-4 border-blue-500 transform scale-95 opacity-60">
+                          <div className="flex justify-between items-center mb-2">
+                            <div className="h-2 w-16 bg-slate-200 dark:bg-slate-500 rounded"></div>
+                            <span className="text-xs font-bold text-blue-500 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full">
+                              Low
+                            </span>
+                          </div>
+                          <div className="h-2 w-24 bg-slate-100 dark:bg-slate-600 rounded"></div>
+                        </div>
                       </div>
                     )}
                   </div>

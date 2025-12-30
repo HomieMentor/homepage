@@ -18,9 +18,7 @@ export default function ProblemSection({ t }: ProblemSectionProps) {
           {t.problem.items.map((item, index) => (
             <div
               key={index}
-              className={`bg-slate-50 dark:bg-slate-800 p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 dark:border-slate-700 group ${
-                index < 2 ? "md:col-span-6" : "md:col-span-4"
-              }`}
+              className={`bg-slate-50 dark:bg-slate-800 p-8 rounded-3xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-100 dark:border-slate-700 group md:col-span-6 lg:col-span-4`}
             >
               <div className="w-12 h-12 bg-red-50 dark:bg-red-900/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <X className="w-6 h-6 text-red-500 dark:text-red-400" />
