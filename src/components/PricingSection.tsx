@@ -55,15 +55,18 @@ export default function PricingSection({ t }: PricingSectionProps) {
                   </li>
                 ))}
               </ul>
-              <button
-                className={`w-full py-3 px-6 rounded-xl font-semibold transition-colors cursor-pointer ${
+              <a
+                href="https://forms.gle/VDnMnY5Gr7hr6Eb77"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-3 px-6 rounded-xl font-semibold transition-colors cursor-pointer block text-center ${
                   plan.popular
                     ? "bg-sky-600 text-white hover:bg-sky-700 shadow-lg shadow-sky-200 dark:shadow-sky-900/50"
                     : "bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600"
                 }`}
               >
                 {plan.cta}
-              </button>
+              </a>
             </div>
           ))}
         </div>

@@ -11,9 +11,14 @@ export default function Footer({ t }: FooterProps) {
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-8">
           {t.footer.text}
         </h2>
-        <button className="btn-primary text-lg px-10 py-4 shadow-xl shadow-sky-200 dark:shadow-sky-900/50">
+        <a
+          href="https://forms.gle/VDnMnY5Gr7hr6Eb77"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary text-lg px-10 py-4 shadow-xl shadow-sky-200 dark:shadow-sky-900/50 inline-block"
+        >
           {t.footer.cta}
-        </button>
+        </a>
         <div className="mt-16 text-slate-400 dark:text-slate-500 text-sm">
           © {new Date().getFullYear()} Homie AI. All rights reserved.
         </div>

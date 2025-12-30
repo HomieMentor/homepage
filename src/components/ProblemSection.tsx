@@ -31,10 +31,15 @@ export default function ProblemSection({ t }: ProblemSectionProps) {
           ))}
         </div>
         <div className="mt-16 flex justify-center">
-          <button className="btn-primary text-lg px-8 py-4 flex items-center justify-center group">
+          <a
+            href="https://forms.gle/VDnMnY5Gr7hr6Eb77"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-lg px-8 py-4 flex items-center justify-center group"
+          >
             {t.hero.cta}
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
         </div>
       </div>
     </section>
