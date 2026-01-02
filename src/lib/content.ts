@@ -186,7 +186,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
       ],
     },
     footer: {
-      text: "Planning shouldn’t exhaust you. Let Homie handle it for you.",
+      text: "Ready to reclaim your time? Let's build your perfect rhythm.",
       cta: "Join Waiting List",
     },
     eaLink: "",
@@ -361,7 +361,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
       ],
     },
     footer: {
-      text: "排程不該讓你精疲力盡。讓 Homie 幫你搞定一切。",
+      text: "準備好找回你的時間了嗎？讓我們一起打造最適合你的生活節奏。",
       cta: "加入等待名單",
     },
     eaLink: "",
