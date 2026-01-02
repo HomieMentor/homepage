@@ -67,12 +67,13 @@ export default function DynamicSchedulingSection({ t }: DynamicSchedulingSection
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-24 relative">
           {/* Left: Sticky Phone Demo */}
-          <div className="lg:w-1/2 h-[600px] lg:h-[800px] lg:sticky lg:top-24 flex items-center justify-center">
-            <div className="relative w-[320px] h-[640px] bg-slate-900 rounded-[3rem] border-8 border-slate-800 shadow-2xl overflow-hidden">
+          <div className="w-full lg:w-1/2 h-[450px] sm:h-[600px] lg:h-[800px] sticky top-16 lg:top-24 flex items-center justify-center z-30 pointer-events-none lg:pointer-events-auto">
+            <div className="relative w-[280px] sm:w-[320px] h-[500px] sm:h-[640px] bg-slate-900 rounded-[3rem] border-8 border-slate-800 shadow-2xl overflow-hidden scale-[0.8] sm:scale-90 lg:scale-100">
               {/* Phone Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-xl z-20" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-32 h-6 bg-slate-800 rounded-b-xl z-20" />
+
 
               {/* Phone Screen */}
               <div className="absolute inset-0 bg-slate-50 dark:bg-slate-900 p-6 pt-12 flex flex-col">
@@ -128,7 +129,7 @@ export default function DynamicSchedulingSection({ t }: DynamicSchedulingSection
           </div>
 
           {/* Right: Scrollable Triggers */}
-          <div className="lg:w-1/2 space-y-[40vh] py-[20vh]">
+          <div className="w-full lg:w-1/2 space-y-[30vh] lg:space-y-[40vh] py-[10vh] lg:py-[20vh] relative z-10">
             {t.solution.items.map((item, index) => (
               <StepTrigger
                 key={index}

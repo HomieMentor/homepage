@@ -2,6 +2,7 @@ import { Content } from "@/types/content";
 
 export const content: Record<"en" | "zh-tw", Content> = {
   en: {
+    lang: "en",
     nav: {
       pricing: "Pricing",
       cta: "Join Waiting List",
@@ -191,6 +192,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
     eaLink: "",
   },
   "zh-tw": {
+    lang: "zh-tw",
     nav: {
       pricing: "價格方案",
       cta: "加入等待名單",

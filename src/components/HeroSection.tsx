@@ -21,6 +21,14 @@ export default function HeroSection({ t }: HeroSectionProps) {
 
   const handleJoinWaitlist = async () => {
     if (!email) return;
+    
+    // Simple email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStatus("error");
+      setMessage(t.lang === "en" ? "Please enter a valid email address." : "請輸入有效的電子郵件地址。");
+      return;
+    }
 
     setStatus("loading");
     try {
@@ -38,7 +46,7 @@ export default function HeroSection({ t }: HeroSectionProps) {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden pt-20"
+      className="relative min-h-[100dvh] flex flex-col justify-center items-center overflow-hidden pt-20"
     >
       {/* The Breathing Aura */}
       <div className="absolute inset-0 pointer-events-none">
@@ -80,10 +88,10 @@ export default function HeroSection({ t }: HeroSectionProps) {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="space-y-6"
         >
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1] text-balance">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1] text-balance">
             {t.hero.title}
           </h1>
-          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed text-balance font-light">
+          <p className="text-lg sm:text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed text-balance font-light">
             {t.hero.subtitle}
           </p>
         </motion.div>
@@ -92,40 +100,43 @@ export default function HeroSection({ t }: HeroSectionProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="max-w-md mx-auto w-full"
+          className="max-w-xl mx-auto w-full px-4 sm:px-0"
         >
           {status === "success" ? (
-            <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 px-6 py-4 rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-emerald-500/10">
+            <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800 text-emerald-800 dark:text-emerald-200 px-6 py-4 rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-emerald-500/10 min-h-[64px]">
               <CheckCircle2 className="w-5 h-5" />
               <span className="font-medium">You&apos;re on the list. We&apos;ll be in touch.</span>
             </div>
           ) : (
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur opacity-25 group-hover:opacity-40 transition duration-500" />
-              <div className="relative flex items-center bg-white dark:bg-slate-900 p-1.5 rounded-full border border-slate-200 dark:border-slate-800 shadow-xl">
-                <div className="pl-4 text-slate-400">
-                  <Mail className="w-5 h-5" />
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[2rem] sm:rounded-full blur opacity-15 group-hover:opacity-25 transition duration-500" />
+              <div className="relative flex flex-col sm:flex-row items-stretch sm:items-center bg-white dark:bg-slate-900 p-2 sm:p-1.5 rounded-[2rem] sm:rounded-full border border-slate-200 dark:border-slate-800 shadow-xl gap-2 sm:gap-0 min-h-[64px]">
+                <div className="flex items-center flex-1 px-4 py-2 sm:py-0">
+                  <Mail className="w-5 h-5 text-slate-400 shrink-0" />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (status === "error") setStatus("idle");
+                    }}
+                    onKeyDown={(e) => e.key === "Enter" && handleJoinWaitlist()}
+                    disabled={status === "loading"}
+                    placeholder="name@example.com"
+                    className="flex-1 bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white placeholder:text-slate-400 px-3 py-2 outline-none"
+                  />
                 </div>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleJoinWaitlist()}
-                  disabled={status === "loading"}
-                  placeholder="name@example.com"
-                  className="flex-1 bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white placeholder:text-slate-400 px-3 py-2"
-                />
                 <button
                   onClick={handleJoinWaitlist}
                   disabled={status === "loading" || !email}
-                  className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-full font-semibold transition-all hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                  className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 sm:py-3 rounded-[1.5rem] sm:rounded-full font-semibold transition-all hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 whitespace-nowrap min-w-[140px] h-[52px] sm:h-auto"
                 >
                   {status === "loading" ? (
                     <Loader2 className="w-5 h-5 animate-spin" />
                   ) : (
                     <>
-                      <span>Join</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <span>{t.hero.cta}</span>
+                      <ArrowRight className="w-4 h-4 shrink-0" />
                     </>
                   )}
                 </button>

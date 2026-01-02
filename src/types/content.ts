@@ -1,4 +1,5 @@
 export interface Content {
+  lang: string;
   nav: {
     pricing: string;
     cta: string;
