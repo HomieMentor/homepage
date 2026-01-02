@@ -130,23 +130,23 @@ export const content: Record<"en" | "zh-tw", Content> = {
       items: [
         {
           title: "AI schedule think-tank",
-          desc: "Homie’s AI companion team creates three different schedule options based on your goals, constraints, and preferences — each with a different pace and lifestyle rhythm. You don’t start from a blank page; you simply pick the version that feels most like the way you want to live.",
+          desc: "Three personalized schedule options tailored to your lifestyle. Pick the pace that fits your day.",
         },
         {
           title: "Natural conversation",
-          desc: "Instead of dragging blocks on a calendar, you just talk to Homie: 'I just got a last-minute meeting.' 'I’m really drained today.' 'I’m behind on this project.' Homie will automatically reorder tasks, adjust time blocks, and rebalance your day or week for you. No manual rescheduling. No decision fatigue.",
+          desc: "Talk to Homie to adjust your plans. No manual dragging—just speak, and your schedule rebuilds instantly.",
         },
         {
           title: "Weekly behavior insights",
-          desc: "Each week, Homie analyzes how you actually spent your time: When you worked best, where you most often got stuck, what types of tasks drained you the most. Then it gives you personalized suggestions for how to adjust your schedule and rhythm for the coming week.",
+          desc: "Deep analysis of your productivity and energy patterns. Get personalized tips to optimize your rhythm.",
         },
         {
           title: "Unified calendars",
-          desc: "Keep all your calendars and tasks in one place. Homie syncs your work, personal, and shared calendars into a single timeline, so you never miss a conflict or forget a task. Everything stays aligned — without switching apps or checking multiple views.",
+          desc: "Sync all your work and personal calendars into one seamless timeline. No more app-switching or conflicts.",
         },
         {
           title: "Smart prioritization",
-          desc: "Homie helps you decide what should happen first, what can move, and what fits best in your day. It pulls tasks from your todo list into your calendar, arranges them based on urgency, importance, and your energy levels, and updates the order automatically whenever your plans change. No more guessing. No more competing tasks.",
+          desc: "AI-driven task sorting based on urgency and energy. Know exactly what to do next, even when plans change.",
         },
       ],
     },
@@ -305,23 +305,23 @@ export const content: Record<"en" | "zh-tw", Content> = {
       items: [
         {
           title: "AI 排程智囊團",
-          desc: "Homie 的 AI 同伴會根據你的目標、限制與生活節奏，生成三套不同風格的排程方案。你不再從零開始，只需要選你最想要的生活方式。",
+          desc: "生成三套專屬排程，選一個最適合你今天節奏的版本。",
         },
         {
           title: "像聊天一樣重新安排",
-          desc: "你不用再拖行程格子了，只要說：「我被臨時加一個會議。」「我今天真的沒力氣。」「我專案落後了。」Homie 就會自動重新排序、調整時段、重建你的行程。零手動。零糾結。",
+          desc: "用語音或文字更新計畫，Homie 自動重建行程，徹底告別手動調整。",
         },
         {
           title: "每週行為洞察 & 生活節奏建議",
-          desc: "每週 Homie 會分析你的真實使用情況：你何時最有效率、你最常卡在哪裡、什麼任務最消耗你。然後給你個人化的下週排程建議。你用越久，它就越懂你。",
+          desc: "分析你的效率與能量趨勢，提供個人化的生活節奏優化建議。",
         },
         {
           title: "整合所有行事曆",
-          desc: "將所有日曆和任務集中一處。Homie 同步你的工作、個人及共享日曆至單一時間軸，讓你不再錯過衝突或遺漏任務。一切保持同步 ⸺ 無需切換 App 或查看多個介面。",
+          desc: "同步所有工作與個人日曆至單一時間軸，一處掌握所有安排。",
         },
         {
           title: "智慧優先級排序",
-          desc: "Homie 幫你決定什麼該先做、什麼可以延後、什麼最適合現在做。它將待辦清單拉入行事曆，根據緊急度、重要性及你的能量狀態排列，並在計畫變動時自動更新順序。不再猜測，不再讓任務互相打架。",
+          desc: "根據緊急度與能量自動排序任務，讓你永遠知道現在最該做什麼。",
         },
       ],
     },
