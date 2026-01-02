@@ -20,19 +20,15 @@
 }
 
 :root {
-  --background: #fdfcf8;
-  --foreground: #334155;
+  --background: #0f172a;
+  --foreground: #cbd5e1;
   --font-geist-sans: var(--font-geist-sans);
   --font-geist-mono: var(--font-geist-mono);
 }
 
-.dark {
-  --background: #0f172a;
-  --foreground: #cbd5e1;
-}
-
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
@@ -65,14 +61,9 @@ body {
 
 /* Utilities */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.dark .glass-panel {
-  background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 

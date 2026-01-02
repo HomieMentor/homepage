@@ -56,15 +56,13 @@ export default function DynamicSchedulingSection({ t }: DynamicSchedulingSection
   };
 
   return (
-    <section ref={containerRef} className="relative bg-slate-50 dark:bg-slate-900 py-24">
+    <section ref={containerRef} className="relative bg-slate-900 py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             {t.dynamicScheduling.title}
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            {t.dynamicScheduling.subtitle}
-          </p>
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto">{t.dynamicScheduling.subtitle}</p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-24 relative">
@@ -75,14 +73,14 @@ export default function DynamicSchedulingSection({ t }: DynamicSchedulingSection
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 sm:w-32 h-6 bg-slate-800 rounded-b-xl z-20" />
 
               {/* Phone Screen */}
-              <div className="absolute inset-0 bg-slate-50 dark:bg-slate-900 p-6 pt-12 flex flex-col">
+              <div className="absolute inset-0 bg-slate-900 p-6 pt-12 flex flex-col">
                 {/* Header */}
                 <div className="flex justify-between items-center mb-6">
                   <div>
-                    <h4 className="font-bold text-lg dark:text-white">Today</h4>
+                    <h4 className="font-bold text-lg text-white">Today</h4>
                     <p className="text-xs text-slate-500">Wed, Jan 3</p>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800" />
+                  <div className="w-8 h-8 rounded-full bg-slate-800" />
                 </div>
 
                 {/* Liquid Calendar Items */}
@@ -97,16 +95,12 @@ export default function DynamicSchedulingSection({ t }: DynamicSchedulingSection
                           transition={{ type: "spring", stiffness: 300, damping: 30 }}
                           className={clsx(
                             "p-4 rounded-2xl border-l-4 shadow-sm",
-                            item.type === "work" && "bg-white dark:bg-slate-800 border-indigo-500",
-                            item.type === "meeting" &&
-                              "bg-indigo-50 dark:bg-indigo-900/20 border-indigo-400",
-                            item.type === "break" &&
-                              "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-400",
-                            item.type === "admin" &&
-                              "bg-slate-100 dark:bg-slate-800 border-slate-400",
-                            item.type === "urgent" && "bg-red-50 dark:bg-red-900/20 border-red-500",
-                            item.type === "focus" &&
-                              "bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 border-slate-900"
+                            item.type === "work" && "bg-slate-800 border-indigo-500",
+                            item.type === "meeting" && "bg-indigo-900/20 border-indigo-400",
+                            item.type === "break" && "bg-emerald-900/20 border-emerald-400",
+                            item.type === "admin" && "bg-slate-800 border-slate-400",
+                            item.type === "urgent" && "bg-red-900/20 border-red-500",
+                            item.type === "focus" && "bg-slate-100 text-slate-900 border-slate-900"
                           )}
                         >
                           <div className="flex justify-between items-start">
@@ -188,16 +182,16 @@ function StepTrigger({
       transition={{ duration: 0.5 }}
       className={clsx(
         "p-8 rounded-3xl transition-colors duration-500",
-        "hover:bg-white dark:hover:bg-slate-800 shadow-sm"
+        "hover:bg-slate-800 shadow-sm"
       )}
     >
       <div className="flex items-center gap-4 mb-4">
-        <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-slate-500">
+        <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center font-bold text-slate-500">
           {isLast ? <Clock className="w-5 h-5" /> : index + 1}
         </div>
-        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{title}</h3>
+        <h3 className="text-2xl font-bold text-white">{title}</h3>
       </div>
-      <p className="text-xl text-slate-600 dark:text-slate-400 pl-14">{desc}</p>
+      <p className="text-xl text-slate-400 pl-14">{desc}</p>
     </motion.div>
   );
 }

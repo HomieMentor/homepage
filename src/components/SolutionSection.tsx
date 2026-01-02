@@ -22,24 +22,22 @@ export default function SolutionSection({ t }: SolutionSectionProps) {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center bg-gradient-to-b from-slate-50 to-orange-50 dark:from-slate-950 dark:to-slate-900 overflow-hidden py-24"
+      className="relative min-h-screen flex items-center bg-gradient-to-b from-slate-950 to-slate-900 overflow-hidden py-24"
     >
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-orange-200/20 dark:bg-orange-900/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-200/20 dark:bg-sky-900/10 rounded-full blur-[100px]" />
+        <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-orange-900/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-sky-900/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left Content */}
           <motion.div style={{ opacity, y }}>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
               {t.solution.title}
             </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 mb-12 leading-relaxed">
-              {t.solution.subtitle}
-            </p>
+            <p className="text-xl text-slate-400 mb-12 leading-relaxed">{t.solution.subtitle}</p>
 
             <div className="space-y-8">
               {t.solution.items.map((item, index) => (
@@ -54,15 +52,15 @@ export default function SolutionSection({ t }: SolutionSectionProps) {
                   <h3
                     className={clsx(
                       "text-2xl font-semibold mb-2 transition-colors",
-                      index === 0 && "text-indigo-600 dark:text-indigo-400",
-                      index === 1 && "text-sky-600 dark:text-sky-400",
-                      index === 2 && "text-teal-600 dark:text-teal-400",
-                      index === 3 && "text-amber-600 dark:text-amber-400"
+                      index === 0 && "text-indigo-400",
+                      index === 1 && "text-sky-400",
+                      index === 2 && "text-teal-400",
+                      index === 3 && "text-amber-400"
                     )}
                   >
                     {item.title}
                   </h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-400 border-l-2 border-slate-200 dark:border-slate-800 pl-4 group-hover:border-slate-400 dark:group-hover:border-slate-600 transition-colors">
+                  <p className="text-lg text-slate-400 border-l-2 border-slate-800 pl-4 group-hover:border-slate-600 transition-colors">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -103,20 +101,20 @@ export default function SolutionSection({ t }: SolutionSectionProps) {
                   initial={{ y: 50, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.8 }}
-                  className="absolute top-1/4 left-10 w-64 p-4 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50"
+                  className="absolute top-1/4 left-10 w-64 p-4 bg-slate-800/80 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-700/50"
                 >
-                  <div className="h-2 w-1/3 bg-slate-200 dark:bg-slate-700 rounded mb-2" />
-                  <div className="h-2 w-2/3 bg-slate-200 dark:bg-slate-700 rounded" />
+                  <div className="h-2 w-1/3 bg-slate-700 rounded mb-2" />
+                  <div className="h-2 w-2/3 bg-slate-700 rounded" />
                 </motion.div>
 
                 <motion.div
                   initial={{ y: 100, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
-                  className="absolute top-1/2 right-10 w-72 p-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/50 dark:border-slate-700/50 z-10"
+                  className="absolute top-1/2 right-10 w-72 p-6 bg-slate-800/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-700/50 z-10"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600">
+                    <div className="w-10 h-10 rounded-full bg-emerald-900/30 flex items-center justify-center text-emerald-600">
                       <motion.div
                         animate={{ scale: [1, 1.2, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
@@ -124,13 +122,13 @@ export default function SolutionSection({ t }: SolutionSectionProps) {
                       />
                     </div>
                     <div>
-                      <div className="h-2.5 w-24 bg-slate-200 dark:bg-slate-700 rounded mb-1.5" />
-                      <div className="h-2 w-16 bg-slate-100 dark:bg-slate-800 rounded" />
+                      <div className="h-2.5 w-24 bg-slate-700 rounded mb-1.5" />
+                      <div className="h-2 w-16 bg-slate-800 rounded" />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="h-10 w-full bg-emerald-50/50 dark:bg-emerald-900/10 rounded-lg" />
-                    <div className="h-10 w-full bg-slate-50 dark:bg-slate-700/10 rounded-lg" />
+                    <div className="h-10 w-full bg-emerald-900/10 rounded-lg" />
+                    <div className="h-10 w-full bg-slate-700/10 rounded-lg" />
                   </div>
                 </motion.div>
 
@@ -138,10 +136,10 @@ export default function SolutionSection({ t }: SolutionSectionProps) {
                   initial={{ y: 150, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.6, duration: 0.8 }}
-                  className="absolute bottom-1/4 left-20 w-56 p-4 bg-white/60 dark:bg-slate-800/60 backdrop-blur-lg rounded-2xl shadow-lg border border-white/50 dark:border-slate-700/50"
+                  className="absolute bottom-1/4 left-20 w-56 p-4 bg-slate-800/60 backdrop-blur-lg rounded-2xl shadow-lg border border-slate-700/50"
                 >
-                  <div className="h-2 w-1/2 bg-slate-200 dark:bg-slate-700 rounded mb-2" />
-                  <div className="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded" />
+                  <div className="h-2 w-1/2 bg-slate-700 rounded mb-2" />
+                  <div className="h-2 w-full bg-slate-700 rounded" />
                 </motion.div>
               </div>
             </motion.div>
