@@ -34,6 +34,8 @@ const companionText: Record<string, string> = {
   Zoe: "text-rose-400",
 };
 
+type Companion = Content["companions"]["items"][number];
+
 export default function CompanionsSection({ t }: CompanionsSectionProps) {
   return (
     <section className="py-24 md:py-32 bg-slate-950 overflow-hidden relative">
@@ -61,7 +63,7 @@ export default function CompanionsSection({ t }: CompanionsSectionProps) {
         {/* Mobile Horizontal Carousel */}
         <div className="lg:hidden flex overflow-x-auto gap-4 px-4 -mx-4 pb-8 snap-x snap-mandatory no-scrollbar">
           {t.companions.items.map((companion, index) => (
-            <MobileCompanionCard key={index} companion={companion} index={index} />
+            <MobileCompanionCard key={index} companion={companion} />
           ))}
           {/* Spacer for right padding */}
           <div className="w-2 shrink-0" />
@@ -71,7 +73,7 @@ export default function CompanionsSection({ t }: CompanionsSectionProps) {
   );
 }
 
-function CompanionCard({ companion, index }: { companion: any; index: number }) {
+function CompanionCard({ companion, index }: { companion: Companion; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -132,7 +134,7 @@ function CompanionCard({ companion, index }: { companion: any; index: number }) 
   );
 }
 
-function MobileCompanionCard({ companion, index }: { companion: any; index: number }) {
+function MobileCompanionCard({ companion }: { companion: Companion }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
