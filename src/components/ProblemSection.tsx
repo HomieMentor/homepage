@@ -1,29 +1,21 @@
 "use client";
 
 import { Content } from "@/types/content";
-import { 
-  RotateCw, 
-  AlertTriangle, 
-  Calendar, 
-  BrainCircuit, 
-  UserX, 
-  LayoutGrid 
-} from "lucide-react";
+import { RotateCw, AlertTriangle, Calendar, BrainCircuit, UserX, LayoutGrid } from "lucide-react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { MouseEvent } from "react";
-import clsx from "clsx";
 
 interface ProblemSectionProps {
   t: Content;
 }
 
 const icons = [
-  RotateCw,       // Endless Reorganizing
-  AlertTriangle,  // Fragile Plans
-  Calendar,       // Static Calendar
-  BrainCircuit,   // Decision Fatigue
-  UserX,          // Solo Struggle
-  LayoutGrid,     // Fragmented Tools
+  RotateCw, // Endless Reorganizing
+  AlertTriangle, // Fragile Plans
+  Calendar, // Static Calendar
+  BrainCircuit, // Decision Fatigue
+  UserX, // Solo Struggle
+  LayoutGrid, // Fragmented Tools
 ];
 
 export default function ProblemSection({ t }: ProblemSectionProps) {
@@ -31,13 +23,14 @@ export default function ProblemSection({ t }: ProblemSectionProps) {
     <section className="relative py-24 md:py-32 bg-slate-50 dark:bg-slate-950 overflow-hidden">
       {/* Enhanced Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808020_1px,transparent_1px),linear-gradient(to_bottom,#80808020_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+
       <div className="absolute inset-0 bg-[radial-gradient(circle_800px_at_50%_-100px,#cbd5e130,transparent)] dark:bg-[radial-gradient(circle_800px_at_50%_-100px,#1e293b40,transparent)] pointer-events-none" />
 
       {/* Top Fade */}
       <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-slate-50 dark:from-slate-950 to-transparent pointer-events-none z-10" />
 
       <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -46,7 +39,7 @@ export default function ProblemSection({ t }: ProblemSectionProps) {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800 text-red-600 dark:text-red-400 text-sm font-medium mb-6">
             <AlertTriangle className="w-4 h-4" />
-            <span>The Friction</span>
+            <span>{t.lang === "zh-tw" ? "隱形阻力" : "The Friction"}</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
             {t.problem.title}
@@ -56,27 +49,16 @@ export default function ProblemSection({ t }: ProblemSectionProps) {
         {/* Mobile: Horizontal Swipe / Desktop: Grid */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {t.problem.items.map((item, index) => (
-            <SpotlightCard 
-              key={index} 
-              index={index} 
-              title={item.title} 
-              desc={item.desc} 
-            />
+            <SpotlightCard key={index} index={index} title={item.title} desc={item.desc} />
           ))}
         </div>
 
         {/* Mobile View: Vertical Stack with "Active" Cards */}
         <div className="md:hidden flex flex-col gap-4">
           {t.problem.items.map((item, index) => (
-            <MobileCard
-              key={index}
-              index={index}
-              title={item.title}
-              desc={item.desc}
-            />
+            <MobileCard key={index} index={index} title={item.title} desc={item.desc} />
           ))}
         </div>
-
       </div>
     </section>
   );
@@ -115,18 +97,16 @@ function SpotlightCard({ index, title, desc }: { index: number; title: string; d
           `,
         }}
       />
-      
+
       <div className="relative flex flex-col h-full z-10">
         <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-red-50 dark:group-hover:bg-red-900/20 group-hover:border-red-100 dark:group-hover:border-red-800 transition-all duration-300">
-           <Icon className="w-6 h-6 text-slate-400 group-hover:text-red-500 dark:text-slate-500 dark:group-hover:text-red-400 transition-colors" />
+          <Icon className="w-6 h-6 text-slate-400 group-hover:text-red-500 dark:text-slate-500 dark:group-hover:text-red-400 transition-colors" />
         </div>
-        
+
         <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
           {title}
         </h3>
-        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-          {desc}
-        </p>
+        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{desc}</p>
       </div>
     </motion.div>
   );
@@ -134,7 +114,7 @@ function SpotlightCard({ index, title, desc }: { index: number; title: string; d
 
 function MobileCard({ index, title, desc }: { index: number; title: string; desc: string }) {
   const Icon = icons[index % icons.length];
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -148,12 +128,8 @@ function MobileCard({ index, title, desc }: { index: number; title: string; desc
           <Icon className="w-5 h-5 text-red-500 dark:text-red-400" />
         </div>
         <div>
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-            {title}
-          </h3>
-          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            {desc}
-          </p>
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{title}</h3>
+          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{desc}</p>
         </div>
       </div>
     </motion.div>
