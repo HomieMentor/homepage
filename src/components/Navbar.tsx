@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
+import { useTheme } from "next-themes";
 
 interface NavbarProps {
   lang: "en" | "zh-tw";
@@ -15,6 +16,12 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -34,6 +41,8 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
     setIsLangDropdownOpen(false);
   };
 
+  const logoSrc = mounted && resolvedTheme === "dark" ? "/logo_white.png" : "/logo_black.png";
+
   return (
     <nav className="fixed top-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-100 dark:border-slate-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,11 +50,12 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src="/logo.png"
+                src={logoSrc}
                 alt="Homie Logo"
                 width={120}
                 height={32}
                 className="w-auto h-8"
+                priority
               />
             </Link>
           </div>

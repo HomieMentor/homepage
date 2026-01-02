@@ -4,7 +4,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
   en: {
     nav: {
       pricing: "Pricing",
-      cta: "Join Early Access",
+      cta: "Join Waiting List",
     },
     pricing: {
       title: "Simple, Transparent Pricing",
@@ -23,7 +23,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
             "Manual prioritization",
             "Natural language create/edit",
           ],
-          cta: "Get Started (Early Access)",
+          cta: "Join Waiting List",
         },
         {
           name: "Annual",
@@ -36,7 +36,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
             "Priority suggestions",
             "Weekly insights",
           ],
-          cta: "Join Early Access",
+          cta: "Join Waiting List",
           popular: true,
         },
         {
@@ -50,7 +50,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
             "Priority suggestions",
             "Weekly insights",
           ],
-          cta: "Join Early Access",
+          cta: "Join Waiting List",
         },
       ],
     },
@@ -59,7 +59,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
       subtitle:
         "Meet Homie, the first AI-powered calendar that adjusts itself based on your energy, mood, workload, and unexpected changes",
       tagline: "Stop forcing yourself to fit your calendar. Let your calendar finally fit you.",
-      cta: "Join Early Access",
+      cta: "Join Waiting List",
     },
     problem: {
       title: "You don’t need more productivity tools. You need a system that understands you",
@@ -186,14 +186,14 @@ export const content: Record<"en" | "zh-tw", Content> = {
     },
     footer: {
       text: "Planning shouldn’t exhaust you. Let Homie handle it for you.",
-      cta: "Join Early Access",
+      cta: "Join Waiting List",
     },
     eaLink: "https://forms.gle/RECtNj3co4rQQcE5A",
   },
   "zh-tw": {
     nav: {
       pricing: "價格方案",
-      cta: "加入 Early Access",
+      cta: "加入候補名單",
     },
     pricing: {
       title: "簡單透明的價格方案",
@@ -208,7 +208,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
           period: "",
           desc: "適合想要開始井井有條的你。",
           features: ["基礎行事曆整合", "手動優先級", "自然語言建立/編輯"],
-          cta: "立即開始 (Early Access)",
+          cta: "加入候補名單",
         },
         {
           name: "年訂閱",
@@ -216,7 +216,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
           period: "/月",
           desc: "省下 ~20%",
           features: ["AI 最佳化", "即時調整", "優先級建議", "每週洞察"],
-          cta: "加入 Early Access",
+          cta: "加入候補名單",
           popular: true,
         },
         {
@@ -225,7 +225,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
           period: "/月",
           desc: "7 天免費試用",
           features: ["AI 最佳化", "即時調整", "優先級建議", "每週洞察"],
-          cta: "加入 Early Access",
+          cta: "加入候補名單",
         },
       ],
     },
@@ -233,7 +233,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
       title: "你的 AI 行程智囊團 ⸺ 專為「你」而生",
       subtitle: "認識 Homie：第一款會依照你的能量、情緒、工作量與突發事件自動調整的 AI 行事曆",
       tagline: "你終於不必再遷就行事曆，而是讓行事曆開始遷就你的生活。",
-      cta: "加入 Early Access",
+      cta: "加入候補名單",
     },
     problem: {
       title: "你不需要更多工具，你需要的是「懂你」的系統",
@@ -360,7 +360,7 @@ export const content: Record<"en" | "zh-tw", Content> = {
     },
     footer: {
       text: "排程不該讓你精疲力盡。讓 Homie 幫你搞定一切。",
-      cta: "加入 Early Access",
+      cta: "加入候補名單",
     },
     eaLink: "https://forms.gle/zZ4Lcb1yC3ct8Qot6",
   },
