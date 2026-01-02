@@ -96,9 +96,12 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
             </div>
 
             <ThemeToggle />
-            <a href={t.eaLink} target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="btn-primary"
+            >
               {t.nav.cta}
-            </a>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -126,14 +129,15 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
       {isMenuOpen && (
         <div className="md:hidden bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
           <div className="px-4 pt-2 pb-4 space-y-4">
-            <a
-              href={t.eaLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                setIsMenuOpen(false);
+              }}
               className="w-full btn-primary block text-center"
             >
               {t.nav.cta}
-            </a>
+            </button>
           </div>
         </div>
       )}

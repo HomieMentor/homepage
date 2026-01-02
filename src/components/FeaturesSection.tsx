@@ -176,15 +176,13 @@ export default function FeaturesSection({ t }: FeaturesSectionProps) {
           ))}
         </div>
         <div className="mt-20 flex justify-center">
-          <a
-            href={t.eaLink}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="btn-primary text-lg px-8 py-4 flex items-center justify-center group"
           >
             {t.hero.cta}
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </button>
         </div>
       </div>
     </section>
