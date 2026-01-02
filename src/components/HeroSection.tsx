@@ -169,7 +169,7 @@ export default function HeroSection({ t }: HeroSectionProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
       >
         <div className="w-6 h-10 rounded-full border-2 border-slate-300 dark:border-slate-700 flex items-start justify-center p-1">
           <motion.div
@@ -179,6 +179,9 @@ export default function HeroSection({ t }: HeroSectionProps) {
           />
         </div>
       </motion.div>
+
+      {/* Bottom Fade to blend with next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 dark:from-slate-950 to-transparent pointer-events-none z-10" />
     </section>
   );
 }
