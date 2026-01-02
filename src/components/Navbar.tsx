@@ -1,7 +1,10 @@
 import { Content } from "@/types/content";
-import { Globe, Menu, X, ChevronDown, Check } from "lucide-react";
+import { Globe, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import clsx from "clsx";
 
 interface NavbarProps {
   lang: "en" | "zh-tw";
@@ -11,120 +14,163 @@ interface NavbarProps {
 
 export default function Navbar({ lang, setLang, t }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown when clicking outside
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsLangDropdownOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
     };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleLangSelect = (selectedLang: "en" | "zh-tw") => {
     setLang(selectedLang);
-    setIsLangDropdownOpen(false);
   };
 
+  const logoSrc = "/logo_white.png";
+
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <Link
-              href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"
-            >
-              Homie
-            </Link>
-          </div>
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={clsx(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/pricing"
-              className="text-slate-600 hover:text-sky-600 transition-colors font-medium"
-            >
-              {t.nav.pricing}
-            </Link>
-
-            {/* Language Dropdown */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-                className="flex items-center text-slate-600 hover:text-sky-600 transition-colors cursor-pointer font-medium"
-              >
-                <Globe className="w-4 h-4 mr-2" />
-                {lang === "en" ? "Language" : "語言"}
-                <ChevronDown
-                  className={`w-4 h-4 ml-1 transition-transform ${isLangDropdownOpen ? "rotate-180" : ""}`}
+          scrolled
+            ? "py-4 bg-slate-900/80 backdrop-blur-lg border-b border-slate-700/50 shadow-sm"
+            : "py-6 bg-transparent"
+        )}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2 group">
+              <div className="relative">
+                <Image
+                  src={logoSrc}
+                  alt="Homie Logo"
+                  width={100}
+                  height={28}
+                  className="w-auto h-7 opacity-90 group-hover:opacity-100 transition-opacity"
+                  priority
                 />
+              </div>
+            </Link>
+
+            {/* Desktop Nav */}
+
+            <div className="hidden md:flex items-center space-x-6">
+              {/* Language Toggle */}
+
+              <button
+                onClick={() => setLang(lang === "en" ? "zh-tw" : "en")}
+                className="flex items-center text-sm font-medium text-slate-400 hover:text-slate-100 transition-colors cursor-pointer"
+              >
+                <Globe className="w-4 h-4 mr-2 opacity-70" />
+
+                <span className="tracking-wide">{lang === "en" ? "繁體中文" : "English"}</span>
               </button>
 
-              {isLangDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-slate-100 py-1 animate-in fade-in zoom-in-95 duration-200">
+              <div className="w-px h-4 bg-slate-700 mx-2" />
+
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="bg-white text-slate-900 px-5 py-2 rounded-full text-sm font-semibold hover:shadow-lg hover:shadow-white/20 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+              >
+                {t.nav.cta}
+              </button>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center gap-4">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-slate-200 cursor-pointer"
+              >
+                {" "}
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] bg-slate-950/95 backdrop-blur-2xl flex flex-col justify-center items-center md:hidden"
+            style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
+          >
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-6 right-6 p-2 text-slate-400 hover:text-white transition-colors"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            <div className="w-full max-w-sm px-6 space-y-8 flex flex-col items-center">
+              <div className="flex flex-col items-center gap-6 w-full">
+                <div className="flex items-center bg-slate-800/50 p-1 rounded-full">
                   <button
                     onClick={() => handleLangSelect("en")}
-                    className={`w-full px-4 py-2 text-left text-sm flex items-center justify-between hover:bg-slate-50 transition-colors cursor-pointer ${lang === "en" ? "text-sky-600 font-medium" : "text-slate-600"}`}
+                    className={clsx(
+                      "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300",
+                      lang === "en"
+                        ? "bg-slate-700 shadow-sm text-white"
+                        : "text-slate-500 hover:text-slate-300"
+                    )}
                   >
                     English
-                    {lang === "en" && <Check className="w-3 h-3" />}
                   </button>
                   <button
                     onClick={() => handleLangSelect("zh-tw")}
-                    className={`w-full px-4 py-2 text-left text-sm flex items-center justify-between hover:bg-slate-50 transition-colors cursor-pointer ${lang === "zh-tw" ? "text-sky-600 font-medium" : "text-slate-600"}`}
+                    className={clsx(
+                      "px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300",
+                      lang === "zh-tw"
+                        ? "bg-slate-700 shadow-sm text-white"
+                        : "text-slate-500 hover:text-slate-300"
+                    )}
                   >
                     繁體中文
-                    {lang === "zh-tw" && <Check className="w-3 h-3" />}
                   </button>
                 </div>
-              )}
+              </div>
+
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }, 300);
+                }}
+                className="w-full bg-white text-slate-900 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 active:scale-95"
+              >
+                {t.nav.cta}
+              </button>
+
+              <div className="pt-8 opacity-50">
+                <Image
+                  src={logoSrc}
+                  alt="Homie Logo"
+                  width={80}
+                  height={24}
+                  className="w-auto h-6 grayscale"
+                />
+              </div>
             </div>
-
-            <button className="btn-primary">{t.nav.cta}</button>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            {/* Mobile Language Toggle (Simple Cycle) */}
-            <button
-              onClick={() => setLang(lang === "en" ? "zh-tw" : "en")}
-              className="flex items-center text-slate-600 hover:text-sky-600 transition-colors cursor-pointer mr-4"
-            >
-              <Globe className="w-4 h-4 mr-2" />
-              {lang === "en" ? "繁體中文" : "English"}
-            </button>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-slate-600 hover:text-slate-900 cursor-pointer"
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-100">
-          <div className="px-4 pt-2 pb-4 space-y-4">
-            <Link
-              href="/pricing"
-              className="block w-full px-3 py-2 text-slate-600 hover:bg-slate-50 rounded-md font-medium"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t.nav.pricing}
-            </Link>
-            <button className="w-full btn-primary">{t.nav.cta}</button>
-          </div>
-        </div>
-      )}
-    </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

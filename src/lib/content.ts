@@ -2,70 +2,68 @@ import { Content } from "@/types/content";
 
 export const content: Record<"en" | "zh-tw", Content> = {
   en: {
+    lang: "en",
     nav: {
       pricing: "Pricing",
-      cta: "Join Early Access",
+      cta: "Join Waiting List",
     },
     pricing: {
       title: "Simple, Transparent Pricing",
-      subtitle: "Choose the plan that fits your workflow.",
+      subtitle: "Choose the plan that fits your workflow",
       monthly: "Monthly",
       yearly: "Yearly",
       save: "Save 20%",
       plans: [
         {
-          name: "Free",
-          price: "$0",
-          period: "/month",
-          desc: "Perfect for individuals getting started.",
+          name: "General",
+          price: "Free",
+          period: "",
+          desc: "Perfect for getting organized.",
           features: [
-            "Basic AI scheduling",
-            "1 AI Companion (Kai)",
-            "Google Calendar integration",
-            "Daily summary",
+            "Basic calendar integration",
+            "Manual prioritization",
+            "Natural language create/edit",
           ],
-          cta: "Get Started",
+          cta: "Join Waiting List",
         },
         {
-          name: "Pro",
-          price: "$12",
+          name: "Annual",
+          price: "159 NTD",
           period: "/month",
-          desc: "For professionals who need full AI power.",
+          desc: "Save ~20%",
           features: [
-            "Advanced AI scheduling",
-            "All 5 AI Companions",
-            "Unlimited calendar integrations",
-            "Weekly insights & analytics",
-            "Priority support",
+            "AI optimization",
+            "Real-time adjustments",
+            "Priority suggestions",
+            "Weekly insights",
           ],
-          cta: "Start Free Trial",
+          cta: "Join Waiting List",
           popular: true,
         },
         {
-          name: "Team",
-          price: "$29",
+          name: "Monthly",
+          price: "179 NTD",
           period: "/month",
-          desc: "Collaborate with your team seamlessly.",
+          desc: "7-day free trial",
           features: [
-            "Everything in Pro",
-            "Team scheduling",
-            "Shared workspaces",
-            "Admin dashboard",
-            "SSO & Advanced security",
+            "AI optimization",
+            "Real-time adjustments",
+            "Priority suggestions",
+            "Weekly insights",
           ],
-          cta: "Contact Sales",
+          cta: "Join Waiting List",
         },
       ],
     },
     hero: {
-      title: "Your AI Schedule Team — Built to Adapt to You.",
+      title: "Your AI Schedule Team — Built to Adapt to You",
       subtitle:
-        "Meet Homie, the first AI-powered calendar that adjusts itself based on your energy, mood, workload, and unexpected changes.",
+        "Meet Homie, the first AI-powered calendar that adjusts itself based on your energy, mood, workload, and unexpected changes",
       tagline: "Stop forcing yourself to fit your calendar. Let your calendar finally fit you.",
-      cta: "Join Early Access",
+      cta: "Join Waiting List",
     },
     problem: {
-      title: "You don’t need more productivity tools. You need a system that understands you.",
+      title: "You don’t need more productivity tools. You need a system that understands you",
       items: [
         {
           title: "Endless Reorganizing",
@@ -87,11 +85,15 @@ export const content: Record<"en" | "zh-tw", Content> = {
           title: "Solo Struggle",
           desc: "Working alone means no one helps you sort or reprioritize your tasks.",
         },
+        {
+          title: "Fragmented Tools",
+          desc: "Your calendars and todos live in separate apps, so you keep switching back and forth just to avoid overlaps or missed tasks.",
+        },
       ],
     },
     solution: {
-      title: "Your life is dynamic. Your schedule should be too.",
-      subtitle: "When your day falls apart, your plan doesn’t have to.",
+      title: "Your life is dynamic. Your schedule should be too",
+      subtitle: "When your day falls apart, your plan doesn’t have to",
       items: [
         {
           title: "Overslept?",
@@ -128,15 +130,23 @@ export const content: Record<"en" | "zh-tw", Content> = {
       items: [
         {
           title: "AI schedule think-tank",
-          desc: "Homie’s AI companion team creates three different schedule options based on your goals, constraints, and preferences — each with a different pace and lifestyle rhythm. You don’t start from a blank page; you simply pick the version that feels most like the way you want to live.",
+          desc: "Three personalized schedule options tailored to your lifestyle. Pick the pace that fits your day.",
         },
         {
           title: "Natural conversation",
-          desc: "Instead of dragging blocks on a calendar, you just talk to Homie: 'I just got a last-minute meeting.' 'I’m really drained today.' 'I’m behind on this project.' Homie will automatically reorder tasks, adjust time blocks, and rebalance your day or week for you. No manual rescheduling. No decision fatigue.",
+          desc: "Talk to Homie to adjust your plans. No manual dragging—just speak, and your schedule rebuilds instantly.",
         },
         {
           title: "Weekly behavior insights",
-          desc: "Each week, Homie analyzes how you actually spent your time: When you worked best, where you most often got stuck, what types of tasks drained you the most. Then it gives you personalized suggestions for how to adjust your schedule and rhythm for the coming week.",
+          desc: "Deep analysis of your productivity and energy patterns. Get personalized tips to optimize your rhythm.",
+        },
+        {
+          title: "Unified calendars",
+          desc: "Sync all your work and personal calendars into one seamless timeline. No more app-switching or conflicts.",
+        },
+        {
+          title: "Smart prioritization",
+          desc: "AI-driven task sorting based on urgency and energy. Know exactly what to do next, even when plans change.",
         },
       ],
     },
@@ -176,69 +186,59 @@ export const content: Record<"en" | "zh-tw", Content> = {
       ],
     },
     footer: {
-      text: "Planning shouldn’t exhaust you. Let Homie handle it for you.",
-      cta: "Join Early Access",
+      text: "Ready to reclaim your time? Let's build your perfect rhythm.",
+      cta: "Join Waiting List",
     },
+    eaLink: "",
   },
   "zh-tw": {
+    lang: "zh-tw",
     nav: {
       pricing: "價格方案",
-      cta: "加入 Early Access",
+      cta: "加入等待名單",
     },
     pricing: {
       title: "簡單透明的價格方案",
-      subtitle: "選擇最適合你的工作流程的方案。",
+      subtitle: "選擇最適合你的工作流程的方案",
       monthly: "月繳",
       yearly: "年繳",
       save: "省下 20%",
       plans: [
         {
-          name: "免費版",
-          price: "$0",
-          period: "/月",
-          desc: "適合剛開始使用的個人用戶。",
-          features: ["基礎 AI 排程", "1 位 AI 同伴 (Kai)", "Google 日曆整合", "每日摘要"],
-          cta: "立即開始",
+          name: "一般",
+          price: "免費",
+          period: "",
+          desc: "適合想要開始井井有條的你。",
+          features: ["基礎行事曆整合", "手動優先級", "自然語言建立/編輯"],
+          cta: "加入等待名單",
         },
         {
-          name: "專業版",
-          price: "$12",
+          name: "年訂閱",
+          price: "159 NTD",
           period: "/月",
-          desc: "適合需要完整 AI 功能的專業人士。",
-          features: [
-            "進階 AI 排程",
-            "所有 5 位 AI 同伴",
-            "無限日曆整合",
-            "每週洞察與分析",
-            "優先客服支援",
-          ],
-          cta: "免費試用",
+          desc: "省下 ~20%",
+          features: ["AI 最佳化", "即時調整", "優先級建議", "每週洞察"],
+          cta: "加入等待名單",
           popular: true,
         },
         {
-          name: "團隊版",
-          price: "$29",
+          name: "月訂閱",
+          price: "179 NTD",
           period: "/月",
-          desc: "適合團隊協作與管理。",
-          features: [
-            "包含專業版所有功能",
-            "團隊排程",
-            "共享工作區",
-            "管理員後台",
-            "SSO 與進階安全性",
-          ],
-          cta: "聯絡業務",
+          desc: "7 天免費試用",
+          features: ["AI 最佳化", "即時調整", "優先級建議", "每週洞察"],
+          cta: "加入等待名單",
         },
       ],
     },
     hero: {
-      title: "你的 AI 行程智囊團 ⸺ 專為「你」而生。",
-      subtitle: "認識 Homie：第一款會依照你的能量、情緒、工作量與突發事件自動調整的 AI 行事曆。",
+      title: "你的 AI 行程智囊團 ⸺ 專為「你」而生",
+      subtitle: "認識 Homie：第一款會依照你的能量、情緒、工作量與突發事件自動調整的 AI 行事曆",
       tagline: "你終於不必再遷就行事曆，而是讓行事曆開始遷就你的生活。",
-      cta: "加入 Early Access",
+      cta: "加入等待名單",
     },
     problem: {
-      title: "你不需要更多工具，你需要的是「懂你」的系統。",
+      title: "你不需要更多工具，你需要的是「懂你」的系統",
       items: [
         {
           title: "無止盡的重排",
@@ -260,11 +260,15 @@ export const content: Record<"en" | "zh-tw", Content> = {
           title: "孤軍奮戰",
           desc: "一個人工作時，沒有人幫你排序、重整、抓節奏。",
         },
+        {
+          title: "工具分散",
+          desc: "你的日曆和待辦事項分散在不同 App 中，為了避免時間衝突或遺漏任務，你只能不斷來回切換。",
+        },
       ],
     },
     solution: {
-      title: "你的生活是動態的，你的行事曆也該如此。",
-      subtitle: "當你的生活突然變動，你的計畫不需要一起崩塌。",
+      title: "你的生活是動態的，你的行事曆也該如此",
+      subtitle: "當你的生活突然變動，你的計畫不需要一起崩塌",
       items: [
         {
           title: "睡過頭？",
@@ -301,15 +305,23 @@ export const content: Record<"en" | "zh-tw", Content> = {
       items: [
         {
           title: "AI 排程智囊團",
-          desc: "Homie 的 AI 同伴會根據你的目標、限制與生活節奏，生成三套不同風格的排程方案。你不再從零開始，只需要選你最想要的生活方式。",
+          desc: "生成三套專屬排程，選一個最適合你今天節奏的版本。",
         },
         {
           title: "像聊天一樣重新安排",
-          desc: "你不用再拖行程格子了，只要說：「我被臨時加一個會議。」「我今天真的沒力氣。」「我專案落後了。」Homie 就會自動重新排序、調整時段、重建你的行程。零手動。零糾結。",
+          desc: "用語音或文字更新計畫，Homie 自動重建行程，徹底告別手動調整。",
         },
         {
           title: "每週行為洞察 & 生活節奏建議",
-          desc: "每週 Homie 會分析你的真實使用情況：你何時最有效率、你最常卡在哪裡、什麼任務最消耗你。然後給你個人化的下週排程建議。你用越久，它就越懂你。",
+          desc: "分析你的效率與能量趨勢，提供個人化的生活節奏優化建議。",
+        },
+        {
+          title: "整合所有行事曆",
+          desc: "同步所有工作與個人日曆至單一時間軸，一處掌握所有安排。",
+        },
+        {
+          title: "智慧優先級排序",
+          desc: "根據緊急度與能量自動排序任務，讓你永遠知道現在最該做什麼。",
         },
       ],
     },
@@ -349,8 +361,9 @@ export const content: Record<"en" | "zh-tw", Content> = {
       ],
     },
     footer: {
-      text: "排程不該讓你精疲力盡。讓 Homie 幫你搞定一切。",
-      cta: "加入 Early Access",
+      text: "準備好找回你的時間了嗎？讓我們一起打造最適合你的生活節奏。",
+      cta: "加入等待名單",
     },
+    eaLink: "",
   },
 };

@@ -1,4 +1,5 @@
 export interface Content {
+  lang: string;
   nav: {
     pricing: string;
     cta: string;
@@ -66,4 +67,5 @@ export interface Content {
     text: string;
     cta: string;
   };
+  eaLink: string;
 }
