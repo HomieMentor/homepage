@@ -6,14 +6,20 @@ import { content } from "@/lib/content";
 type Lang = "en" | "zh-tw";
 
 export function useLanguage() {
-  const [lang, setLang] = useState<Lang>("zh-tw");
+  const [lang, setLang] = useState<Lang>(() => {
+    // Check if we are in the browser
+    if (typeof window !== "undefined") {
+      const savedLang = localStorage.getItem("homie-lang") as Lang;
+      if (savedLang && (savedLang === "en" || savedLang === "zh-tw")) {
+        return savedLang;
+      }
+    }
+    return "zh-tw";
+  });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedLang = localStorage.getItem("homie-lang") as Lang;
-    if (savedLang && (savedLang === "en" || savedLang === "zh-tw")) {
-      setLang(savedLang);
-    }
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
