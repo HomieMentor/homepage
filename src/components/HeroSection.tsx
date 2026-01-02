@@ -14,7 +14,7 @@ export default function HeroSection({ t }: HeroSectionProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
   const scale = useTransform(scrollY, [0, 400], [1, 0.95]);
@@ -25,7 +25,7 @@ export default function HeroSection({ t }: HeroSectionProps) {
     setStatus("loading");
     try {
       // Mock API call for now
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       setStatus("success");
       setEmail("");
       setTimeout(() => setStatus("idle"), 5000);
@@ -42,35 +42,35 @@ export default function HeroSection({ t }: HeroSectionProps) {
     >
       {/* The Breathing Aura */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
-            rotate: [0, 90, 0]
+            rotate: [0, 90, 0],
           }}
-          transition={{ 
-            duration: 20, 
+          transition={{
+            duration: 20,
             repeat: Infinity,
-            ease: "easeInOut" 
+            ease: "easeInOut",
           }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 blur-[100px]"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.2, 0.4, 0.2],
-            rotate: [90, 0, 90]
+            rotate: [90, 0, 90],
           }}
-          transition={{ 
-            duration: 25, 
+          transition={{
+            duration: 25,
             repeat: Infinity,
-            ease: "easeInOut" 
+            ease: "easeInOut",
           }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-sky-500/20 via-emerald-500/20 to-teal-500/20 blur-[80px]"
         />
       </div>
 
-      <motion.div 
+      <motion.div
         style={{ opacity, scale }}
         className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-12"
       >
@@ -132,7 +132,7 @@ export default function HeroSection({ t }: HeroSectionProps) {
               </div>
             </div>
           )}
-          
+
           {status === "error" && (
             <div className="flex items-center justify-center text-red-500 text-sm mt-4 animate-in fade-in slide-in-from-top-1">
               <AlertCircle className="w-4 h-4 mr-2" />
@@ -141,7 +141,7 @@ export default function HeroSection({ t }: HeroSectionProps) {
           )}
         </motion.div>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -152,17 +152,17 @@ export default function HeroSection({ t }: HeroSectionProps) {
       </motion.div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <div className="w-6 h-10 rounded-full border-2 border-slate-300 dark:border-slate-700 flex items-start justify-center p-1">
-          <motion.div 
+          <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-600" 
+            className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-600"
           />
         </div>
       </motion.div>

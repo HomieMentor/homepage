@@ -48,7 +48,7 @@ export default function DynamicSchedulingSection({ t }: DynamicSchedulingSection
       { time: "9:00", task: "NO MEETINGS", type: "focus", duration: "3h" }, // Protected block
       { time: "12:00", task: "Lunch", type: "break", duration: "1h" },
       { time: "13:00", task: "Project Review", type: "work", duration: "1.5h" },
-    ]
+    ],
   ];
 
   const handleStepEnter = (index: number) => {
@@ -57,100 +57,118 @@ export default function DynamicSchedulingSection({ t }: DynamicSchedulingSection
 
   return (
     <section ref={containerRef} className="relative bg-slate-50 dark:bg-slate-900 py-24">
-       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-         <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-              {t.dynamicScheduling.title}
-            </h2>
-            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              {t.dynamicScheduling.subtitle}
-            </p>
-         </div>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+            {t.dynamicScheduling.title}
+          </h2>
+          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+            {t.dynamicScheduling.subtitle}
+          </p>
+        </div>
 
-         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-           {/* Left: Sticky Phone Demo */}
-           <div className="lg:w-1/2 h-[600px] lg:h-[800px] lg:sticky lg:top-24 flex items-center justify-center">
-             <div className="relative w-[320px] h-[640px] bg-slate-900 rounded-[3rem] border-8 border-slate-800 shadow-2xl overflow-hidden">
-                {/* Phone Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-xl z-20"/>
-                
-                {/* Phone Screen */}
-                <div className="absolute inset-0 bg-slate-50 dark:bg-slate-900 p-6 pt-12 flex flex-col">
-                  {/* Header */}
-                  <div className="flex justify-between items-center mb-6">
-                    <div>
-                      <h4 className="font-bold text-lg dark:text-white">Today</h4>
-                      <p className="text-xs text-slate-500">Wed, Jan 3</p>
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800"/>
-                  </div>
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
+          {/* Left: Sticky Phone Demo */}
+          <div className="lg:w-1/2 h-[600px] lg:h-[800px] lg:sticky lg:top-24 flex items-center justify-center">
+            <div className="relative w-[320px] h-[640px] bg-slate-900 rounded-[3rem] border-8 border-slate-800 shadow-2xl overflow-hidden">
+              {/* Phone Notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-xl z-20" />
 
-                  {/* Liquid Calendar Items */}
-                  <div className="flex-1 space-y-3 relative">
-                     {schedules[activeStep] ? schedules[activeStep].map((item, i) => (
-                       <motion.div
-                         layout
-                         key={`${activeStep}-${i}`} // Force re-render for layout animation if needed, or use consistent keys for fluid morph
-                         initial={{ opacity: 0, scale: 0.9 }}
-                         animate={{ opacity: 1, scale: 1 }}
-                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                         className={clsx(
-                           "p-4 rounded-2xl border-l-4 shadow-sm",
-                           item.type === 'work' && "bg-white dark:bg-slate-800 border-indigo-500",
-                           item.type === 'meeting' && "bg-indigo-50 dark:bg-indigo-900/20 border-indigo-400",
-                           item.type === 'break' && "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-400",
-                           item.type === 'admin' && "bg-slate-100 dark:bg-slate-800 border-slate-400",
-                           item.type === 'urgent' && "bg-red-50 dark:bg-red-900/20 border-red-500",
-                           item.type === 'focus' && "bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 border-slate-900"
-                         )}
-                       >
-                         <div className="flex justify-between items-start">
-                           <span className="text-xs font-mono opacity-70">{item.time}</span>
-                           <span className="text-xs font-mono opacity-50">{item.duration}</span>
-                         </div>
-                         <p className="font-semibold text-sm mt-1">{item.task}</p>
-                       </motion.div>
-                     )) : null}
+              {/* Phone Screen */}
+              <div className="absolute inset-0 bg-slate-50 dark:bg-slate-900 p-6 pt-12 flex flex-col">
+                {/* Header */}
+                <div className="flex justify-between items-center mb-6">
+                  <div>
+                    <h4 className="font-bold text-lg dark:text-white">Today</h4>
+                    <p className="text-xs text-slate-500">Wed, Jan 3</p>
                   </div>
-                  
-                  {/* Floating Action Button */}
-                  <div className="absolute bottom-6 right-6 w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-indigo-500/30">
-                     <Clock className="w-5 h-5"/>
-                  </div>
+                  <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800" />
                 </div>
-             </div>
-           </div>
 
-           {/* Right: Scrollable Triggers */}
-           <div className="lg:w-1/2 space-y-[40vh] py-[20vh]">
-              {t.solution.items.map((item, index) => (
-                <StepTrigger 
-                  key={index} 
-                  index={index} // Shift index by 1 because 0 is "Normal" state
-                  onEnter={() => handleStepEnter(index + 1)}
-                  title={item.title}
-                  desc={item.desc}
-                />
-              ))}
-              <StepTrigger 
-                  index={4} 
-                  onEnter={() => handleStepEnter(0)} // Reset
-                  title="Back on track"
-                  desc="Homie restores your optimal rhythm."
-                  isLast
-                />
-           </div>
-         </div>
-       </div>
+                {/* Liquid Calendar Items */}
+                <div className="flex-1 space-y-3 relative">
+                  {schedules[activeStep]
+                    ? schedules[activeStep].map((item, i) => (
+                        <motion.div
+                          layout
+                          key={`${activeStep}-${i}`} // Force re-render for layout animation if needed, or use consistent keys for fluid morph
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                          className={clsx(
+                            "p-4 rounded-2xl border-l-4 shadow-sm",
+                            item.type === "work" && "bg-white dark:bg-slate-800 border-indigo-500",
+                            item.type === "meeting" &&
+                              "bg-indigo-50 dark:bg-indigo-900/20 border-indigo-400",
+                            item.type === "break" &&
+                              "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-400",
+                            item.type === "admin" &&
+                              "bg-slate-100 dark:bg-slate-800 border-slate-400",
+                            item.type === "urgent" && "bg-red-50 dark:bg-red-900/20 border-red-500",
+                            item.type === "focus" &&
+                              "bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 border-slate-900"
+                          )}
+                        >
+                          <div className="flex justify-between items-start">
+                            <span className="text-xs font-mono opacity-70">{item.time}</span>
+                            <span className="text-xs font-mono opacity-50">{item.duration}</span>
+                          </div>
+                          <p className="font-semibold text-sm mt-1">{item.task}</p>
+                        </motion.div>
+                      ))
+                    : null}
+                </div>
+
+                {/* Floating Action Button */}
+                <div className="absolute bottom-6 right-6 w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-indigo-500/30">
+                  <Clock className="w-5 h-5" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Scrollable Triggers */}
+          <div className="lg:w-1/2 space-y-[40vh] py-[20vh]">
+            {t.solution.items.map((item, index) => (
+              <StepTrigger
+                key={index}
+                index={index} // Shift index by 1 because 0 is "Normal" state
+                onEnter={() => handleStepEnter(index + 1)}
+                title={item.title}
+                desc={item.desc}
+              />
+            ))}
+            <StepTrigger
+              index={4}
+              onEnter={() => handleStepEnter(0)} // Reset
+              title="Back on track"
+              desc="Homie restores your optimal rhythm."
+              isLast
+            />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
 
-function StepTrigger({ index, onEnter, title, desc, isLast }: { index: number, onEnter: () => void, title: string, desc: string, isLast?: boolean }) {
+function StepTrigger({
+  index,
+  onEnter,
+  title,
+  desc,
+  isLast,
+}: {
+  index: number;
+  onEnter: () => void;
+  title: string;
+  desc: string;
+  isLast?: boolean;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start center", "end center"]
+    offset: ["start center", "end center"],
   });
 
   useEffect(() => {
@@ -163,7 +181,7 @@ function StepTrigger({ index, onEnter, title, desc, isLast }: { index: number, o
   }, [scrollYProgress, onEnter]);
 
   return (
-    <motion.div 
+    <motion.div
       ref={ref}
       initial={{ opacity: 0.3 }}
       whileInView={{ opacity: 1 }}
@@ -175,13 +193,11 @@ function StepTrigger({ index, onEnter, title, desc, isLast }: { index: number, o
     >
       <div className="flex items-center gap-4 mb-4">
         <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-bold text-slate-500">
-           {isLast ? <Clock className="w-5 h-5"/> : index + 1}
+          {isLast ? <Clock className="w-5 h-5" /> : index + 1}
         </div>
         <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{title}</h3>
       </div>
-      <p className="text-xl text-slate-600 dark:text-slate-400 pl-14">
-        {desc}
-      </p>
+      <p className="text-xl text-slate-600 dark:text-slate-400 pl-14">{desc}</p>
     </motion.div>
-  )
+  );
 }

@@ -9,7 +9,6 @@ interface CompanionsSectionProps {
   t: Content;
 }
 
-
 const companionColors: Record<string, string> = {
   Kai: "from-indigo-500/20 to-blue-500/20 border-indigo-200 dark:border-indigo-800",
   Luna: "from-purple-500/20 to-fuchsia-500/20 border-purple-200 dark:border-purple-800",
@@ -35,14 +34,13 @@ const companionText: Record<string, string> = {
 };
 
 export default function CompanionsSection({ t }: CompanionsSectionProps) {
-
   return (
     <section className="py-32 bg-slate-50 dark:bg-slate-950 overflow-hidden relative">
       <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none mix-blend-overlay" />
-      
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -69,18 +67,20 @@ export default function CompanionsSection({ t }: CompanionsSectionProps) {
             >
               {/* Image / Avatar */}
               <div className="absolute top-0 left-0 w-full h-3/5 overflow-hidden">
-                 <div className={clsx(
-                   "absolute inset-0 bg-gradient-to-b opacity-20 group-hover:opacity-30 transition-opacity",
-                   companionColors[companion.name]
-                 )} />
-                 <Image
-                    src={`/mentor/${companion.name}.png`}
-                    alt={companion.name}
-                    fill
-                    className="object-cover object-top opacity-90 group-hover:scale-105 transition-transform duration-700 grayscale-[20%] group-hover:grayscale-0"
-                    sizes="(max-width: 768px) 100vw, 20vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-900 via-transparent to-transparent" />
+                <div
+                  className={clsx(
+                    "absolute inset-0 bg-gradient-to-b opacity-20 group-hover:opacity-30 transition-opacity",
+                    companionColors[companion.name]
+                  )}
+                />
+                <Image
+                  src={`/mentor/${companion.name}.png`}
+                  alt={companion.name}
+                  fill
+                  className="object-cover object-top opacity-90 group-hover:scale-105 transition-transform duration-700 grayscale-[20%] group-hover:grayscale-0"
+                  sizes="(max-width: 768px) 100vw, 20vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-900 via-transparent to-transparent" />
               </div>
 
               {/* Content */}
@@ -89,10 +89,15 @@ export default function CompanionsSection({ t }: CompanionsSectionProps) {
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">
                     {companion.name}
                   </h3>
-                  <p className={clsx("text-xs font-bold uppercase tracking-wider mb-4", companionText[companion.name])}>
+                  <p
+                    className={clsx(
+                      "text-xs font-bold uppercase tracking-wider mb-4",
+                      companionText[companion.name]
+                    )}
+                  >
                     {companion.role}
                   </p>
-                  
+
                   <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4 line-clamp-3 group-hover:line-clamp-none transition-all">
                     {companion.desc}
                   </p>

@@ -34,10 +34,7 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsLangDropdownOpen(false);
       }
     }
@@ -52,8 +49,7 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
     setIsLangDropdownOpen(false);
   };
 
-  const logoSrc =
-    mounted && resolvedTheme === "dark" ? "/logo_white.png" : "/logo_black.png";
+  const logoSrc = mounted && resolvedTheme === "dark" ? "/logo_white.png" : "/logo_black.png";
 
   return (
     <motion.nav
@@ -92,9 +88,7 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
                 className="flex items-center text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors"
               >
                 <Globe className="w-4 h-4 mr-2 opacity-70" />
-                <span className="uppercase tracking-wider text-xs">
-                  {lang}
-                </span>
+                <span className="uppercase tracking-wider text-xs">{lang}</span>
                 <ChevronDown
                   className={clsx(
                     "w-3 h-3 ml-1 transition-transform opacity-50",
@@ -117,9 +111,7 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
                     ].map((l) => (
                       <button
                         key={l.code}
-                        onClick={() =>
-                          handleLangSelect(l.code as "en" | "zh-tw")
-                        }
+                        onClick={() => handleLangSelect(l.code as "en" | "zh-tw")}
                         className={clsx(
                           "w-full px-4 py-2.5 text-left text-sm flex items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors",
                           lang === l.code
@@ -128,9 +120,7 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
                         )}
                       >
                         {l.label}
-                        {lang === l.code && (
-                          <Check className="w-3 h-3" />
-                        )}
+                        {lang === l.code && <Check className="w-3 h-3" />}
                       </button>
                     ))}
                   </motion.div>
@@ -153,11 +143,7 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-slate-800 dark:text-slate-200"
             >
-              {isMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>

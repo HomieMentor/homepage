@@ -3,8 +3,9 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei",
-    "Heiti TC", "WenQuanYi Micro Hei", Arial, Helvetica, sans-serif;
+  --font-sans:
+    var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei", "Heiti TC", "WenQuanYi Micro Hei",
+    Arial, Helvetica, sans-serif;
   --color-brand-primary: #0ea5e9;
   --color-brand-secondary: #6366f1;
   --color-surface-light: #fdfcf8;
@@ -37,8 +38,9 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei",
-    "Heiti TC", "WenQuanYi Micro Hei", Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-geist-sans), "PingFang TC", "Microsoft JhengHei", "Heiti TC", "WenQuanYi Micro Hei",
+    Arial, Helvetica, sans-serif;
   line-height: 1.6;
   overflow-x: hidden; /* Prevent horizontal scroll from animations */
 }
