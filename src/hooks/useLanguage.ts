@@ -6,6 +6,7 @@ import { content } from "@/lib/content";
 type Lang = "en" | "zh-tw";
 
 export function useLanguage() {
+  // Initialize with a static default to match server-side rendering
   const [lang, setLang] = useState<Lang>("zh-tw");
   const [mounted, setMounted] = useState(false);
 
@@ -15,17 +16,13 @@ export function useLanguage() {
       setLang(savedLang);
     }
     setMounted(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSetLang = (newLang: Lang) => {
     setLang(newLang);
     localStorage.setItem("homie-lang", newLang);
   };
-
-  // Return default content during SSR/hydration to prevent mismatch
-  // But since the whole page is client-side rendered effectively for the content part,
-  // we just return the current state. The flash is acceptable or we can handle it.
-  // Actually, to be cleaner, we can just return the current state.
 
   return { lang, setLang: handleSetLang, t: content[lang], mounted };
 }

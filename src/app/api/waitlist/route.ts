@@ -1,20 +1,47 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { google } from "googleapis";
 
 export async function POST(request: Request) {
   try {
     const { email } = await request.json();
 
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    // Basic validation
+    if (!email || !/^[^\n\r\t\s@]+@[^\n\r\t\s@]+\.[^\n\r\t\s@]+$/.test(email)) {
       return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
     }
 
-    const filePath = path.join(process.cwd(), "waitlist.csv");
-    const timestamp = new Date().toISOString();
-    const entry = `${timestamp},${email}\n`;
+    // Check for environment variables
+    const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"); // Handle newline characters
+    const sheetId = process.env.GOOGLE_SHEET_ID;
 
-    fs.appendFileSync(filePath, entry);
+    if (!clientEmail || !privateKey || !sheetId) {
+      console.error("Missing Google Sheets environment variables");
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
+
+    // Authenticate with Google
+    const auth = new google.auth.GoogleAuth({
+      credentials: {
+        client_email: clientEmail,
+        private_key: privateKey,
+      },
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    });
+
+    const sheets = google.sheets({ version: "v4", auth });
+
+    // Append the email to the sheet
+    const timestamp = new Date().toISOString();
+    
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: sheetId,
+      range: "Sheet1!A:B", // Appends to columns A and B of "Sheet1"
+      valueInputOption: "USER_ENTERED",
+      requestBody: {
+        values: [[timestamp, email]],
+      },
+    });
 
     return NextResponse.json({ message: "Successfully joined waitlist" }, { status: 200 });
   } catch (error) {
